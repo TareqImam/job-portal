@@ -13,25 +13,25 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('users')}}">
+            <a class="nav-link" href="{{route('user')}}">
                 <i class="mdi mdi-account"></i>
                 <span class="menu-title">Users</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('employers')}}">
+            <a class="nav-link" href="{{route('employer')}}">
                 <i class="mdi mdi-account-multiple-outline"></i>
                 <span class="menu-title">Employers</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('jobposting')}}">
+            <a class="nav-link" href="{{route('jobPost')}}">
                 <i class="mdi mdi-message-text-outline"></i>
                 <span class="menu-title">Job posting</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('categories')}}">
+            <a class="nav-link" href="{{route('category')}}">
                 <i class="mdi mdi-border-all"></i>
                 <span class="menu-title">Categories</span>
             </a>

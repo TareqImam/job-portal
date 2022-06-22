@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
 {
-    public function view()
+    public function masterview()
     {
         return view('backend.master');
     }
