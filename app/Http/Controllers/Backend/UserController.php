@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function userview()
     {
-        return view('backend.pages.admin');
+        return view('backend.pages.users');
     }
 }
