@@ -26,8 +26,6 @@ Route::get('/', [MasterController::class, 'masterview'])->name('master');
 
 /* ------------------ admin panel pages------------------ */
 Route::get('/dashboard', [DashboardController::class, 'dashboardview'])->name('dashboard');
-Route::get('/categories', [CategoryController::class, 'categoryview'])->name('category');
-Route::get('/exam', [ExamController::class, 'examview'])->name('exam');
 
 
 // -----------------------------Applicants routes---------------------------//
@@ -46,3 +44,13 @@ Route::post('/employers/submit', [EmployerController::class, 'employerSubmit'])-
 Route::get('/jobs', [JobPostController::class, 'jobPostView'])->name('jobPost');
 Route::get('/job-post/form', [JobPostController::class, 'jobPostForm'])->name('jobPostForm');
 Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->name('jobPostSubmit');
+
+
+// -----------------------------Categories routes---------------------------//
+Route::get('/categories', [CategoryController::class, 'categoryView'])->name('category');
+Route::get('/categories/form', [CategoryController::class, 'categoryForm'])->name('categoryForm');
+Route::post('/categories/submit', [CategoryController::class, 'categorySubmit'])->name('categorySubmit');
+
+
+// -----------------------------Exam routes---------------------------//
+Route::get('/exam', [ExamController::class, 'examview'])->name('exam');
