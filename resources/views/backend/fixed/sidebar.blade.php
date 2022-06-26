@@ -7,15 +7,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin')}}">
-                <i class="mdi mdi-account-key"></i>
-                <span class="menu-title">Admin</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('user')}}">
+            <a class="nav-link" href="{{route('applicant')}}">
                 <i class="mdi mdi-account"></i>
-                <span class="menu-title">Users</span>
+                <span class="menu-title">Applicants</span>
             </a>
         </li>
         <li class="nav-item">

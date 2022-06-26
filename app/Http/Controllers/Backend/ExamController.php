@@ -9,6 +9,5 @@ class ExamController extends Controller
 {
     public function examview()
     {
-        return view('backend.pages.admin');
     }
 }

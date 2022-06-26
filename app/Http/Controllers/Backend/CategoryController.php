@@ -9,6 +9,5 @@ class CategoryController extends Controller
 {
     public function categoryview()
     {
-        return view('backend.pages.admin');
     }
 }

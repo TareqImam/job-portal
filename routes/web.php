@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\MasterController;
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\AdminController;
-use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ApplicantController;
 use App\Http\Controllers\Backend\EmployerController;
 use App\Http\Controllers\Backend\JobPostController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -21,13 +20,24 @@ use App\Http\Controllers\Backend\ExamController;
 |
 */
 
+/* ------------------ master view------------------ */
+
 Route::get('/', [MasterController::class, 'masterview'])->name('master');
 
 /* ------------------ admin panel pages------------------ */
 Route::get('/dashboard', [DashboardController::class, 'dashboardview'])->name('dashboard');
-Route::get('/admin', [AdminController::class, 'adminview'])->name('admin');
-Route::get('/users', [UserController::class, 'userview'])->name('user');
-Route::get('/employers', [EmployerController::class, 'employerview'])->name('employer');
 Route::get('/jobs', [JobPostController::class, 'jobpostview'])->name('jobPost');
 Route::get('/categories', [CategoryController::class, 'categoryview'])->name('category');
 Route::get('/exam', [ExamController::class, 'examview'])->name('exam');
+
+
+// -----------------------------Applicants routes---------------------------//
+Route::get('/applicant', [ApplicantController::class, 'applicantView'])->name('applicant');
+Route::get('/applicant/form', [ApplicantController::class, 'applicantForm'])->name('applicantForm');
+Route::post('/applicant/submit', [ApplicantController::class, 'applicantSubmit'])->name('applicantSubmit');
+
+
+// -----------------------------Employers routes---------------------------//
+Route::get('/employers', [EmployerController::class, 'employerView'])->name('employer');
+Route::get('/employers/form', [EmployerController::class, 'employerForm'])->name('employerForm');
+Route::post('/employers/submit', [EmployerController::class, 'employerSubmit'])->name('employerSubmit');

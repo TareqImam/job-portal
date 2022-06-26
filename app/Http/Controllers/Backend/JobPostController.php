@@ -9,6 +9,5 @@ class JobPostController extends Controller
 {
     public function jobpostview()
     {
-        return view('backend.pages.admin');
     }
 }
