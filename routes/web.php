@@ -53,4 +53,6 @@ Route::post('/categories/submit', [CategoryController::class, 'categorySubmit'])
 
 
 // -----------------------------Exam routes---------------------------//
-Route::get('/exam', [ExamController::class, 'examview'])->name('exam');
+Route::get('/exam', [ExamController::class, 'examView'])->name('exam');
+Route::get('/exam/form', [ExamController::class, 'examForm'])->name('examForm');
+Route::post('/exam/submit', [ExamController::class, 'examSubmit'])->name('examSubmit');
