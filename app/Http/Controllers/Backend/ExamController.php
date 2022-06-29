@@ -18,11 +18,28 @@ class ExamController extends Controller
     {
         return view('backend.pages.exams.examForm');
     }
-    
+
     public function examSubmit(Request $request)
     {
         // dd($request);
         Exam::create([
+            'examName' => $request->examName,
+            'examSet' => $request->examSet,
+            'examType' => $request->examType
+        ]);
+        return redirect()->route('exam');
+    }
+
+    public function examUpdate($id)
+    {
+        $exam = Exam::find($id);
+        return view('backend.pages.exams.examUpdate', compact('exam'));
+    }
+
+    public function examStore(Request $request, $id)
+    {
+        $exam = Exam::find($id);
+        $exam->update([
             'examName' => $request->examName,
             'examSet' => $request->examSet,
             'examType' => $request->examType

@@ -15,16 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($employer as $data)
+        @foreach($employer as $key=>$data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$data->employerName}}</td>
             <td>{{$data->employerEmail}}</td>
             <td>{{$data->employerCategory}}</td>
             <td>{{$data->employerType}}</td>
             <td>
-                <a href="{{route('employerUpdate',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{{route('employerUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('employerDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

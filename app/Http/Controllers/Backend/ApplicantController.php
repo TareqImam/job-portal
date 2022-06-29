@@ -47,4 +47,10 @@ class ApplicantController extends Controller
         ]);
         return redirect()->route('applicant');
     }
+
+    public function applicantDelete($id)
+    {
+        $applicant = Applicant::find($id)->delete();
+        return redirect()->back();
+    }
 }

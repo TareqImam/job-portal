@@ -53,4 +53,10 @@ class JobPostController extends Controller
         ]);
         return redirect()->route('jobPost');
     }
+
+    public function jobPostDelete($id)
+    {
+        $jobPost = JobPost::find($id)->delete();
+        return redirect()->back();
+    }
 }

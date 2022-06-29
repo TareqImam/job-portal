@@ -52,4 +52,10 @@ class EmployerController extends Controller
         ]);
         return redirect()->route('employer');
     }
+
+    public function employerDelete($id)
+    {
+        $employer = Employer::find($id)->delete();
+        return redirect()->back();
+    }
 }

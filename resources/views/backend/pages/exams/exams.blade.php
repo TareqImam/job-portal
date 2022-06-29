@@ -10,6 +10,7 @@
             <th>Name</th>
             <th>Set</th>
             <th>Type</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
             <td>{{$data->examName}}</td>
             <td>{{$data->examSet}}</td>
             <td>{{$data->examType}}</td>
+            <td>
+                <a href="{{route('examUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

@@ -40,6 +40,8 @@ Route::get('/applcant/update/{id}', [ApplicantController::class, 'applicantUpdat
 
 Route::put('/applicant/update/store/{id}', [ApplicantController::class, 'applicantStore'])->name('applicantStore');
 
+Route::get('/applicant/delete/{id}', [ApplicantController::class, 'applicantDelete'])->name('applicantDelete');
+
 
 
 // -----------------------------Employers routes---------------------------//
@@ -53,6 +55,8 @@ Route::get('employer/update/{id}', [EmployerController::class, 'employerUpdate']
 
 Route::put('/employer/update/store/{id}', [EmployerController::class, 'employerStore'])->name('employerStore');
 
+Route::get('/employers/delete/{id}', [EmployerController::class, 'employerDelete'])->name('employerDelete');
+
 
 
 // -----------------------------Job Posting routes---------------------------//
@@ -65,6 +69,8 @@ Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->nam
 Route::get('/job-post/update/{id}', [JobPostController::class, 'jobPostUpdate'])->name('jobPostUpdate');
 
 Route::put('/job-post/update/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
+
+Route::get('/job-post/delete/{id}', [JobPostController::class, 'jobPostDelete'])->name('jobPostDelete');
 
 
 
@@ -87,3 +93,7 @@ Route::get('/exam', [ExamController::class, 'examView'])->name('exam');
 Route::get('/exam/form', [ExamController::class, 'examForm'])->name('examForm');
 
 Route::post('/exam/submit', [ExamController::class, 'examSubmit'])->name('examSubmit');
+
+Route::get('/exam/update/{id}', [ExamController::class, 'examUpdate'])->name('examUpdate');
+
+Route::put('/exam/update/store/{id}', [ExamController::class, 'examStore'])->name('examStore');

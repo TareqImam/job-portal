@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($applicant as $data)
+        @foreach($applicant as $key=>$data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$data->applicantName}}</td>
             <td>{{$data->applicantEmail}}</td>
             <td>
                 <a href="{{route('applicantUpdate',$data->id)}}" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{{route('applicantDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach
