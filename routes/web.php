@@ -64,7 +64,7 @@ Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->nam
 
 Route::get('/job-post/update/{id}', [JobPostController::class, 'jobPostUpdate'])->name('jobPostUpdate');
 
-Route::put('/job-post/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
+Route::put('/job-post/update/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
 
 
 
@@ -74,6 +74,10 @@ Route::get('/categories', [CategoryController::class, 'categoryView'])->name('ca
 Route::get('/categories/form', [CategoryController::class, 'categoryForm'])->name('categoryForm');
 
 Route::post('/categories/submit', [CategoryController::class, 'categorySubmit'])->name('categorySubmit');
+
+Route::get('/categories/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('categoryUpdate');
+
+Route::put('/categories/update/store/{id}', [CategoryController::class, 'categoryStore'])->name('categoryStore');
 
 
 

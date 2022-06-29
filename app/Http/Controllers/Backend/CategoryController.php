@@ -18,10 +18,26 @@ class CategoryController extends Controller
     {
         return view('backend.pages.categories.categoryForm');
     }
-    
+
     public function categorySubmit(Request $request)
     {
         Category::create([
+            'categoryName' => $request->categoryName,
+            'categoryDescription' => $request->categoryDescription,
+        ]);
+        return redirect()->route('category');
+    }
+
+    public function categoryUpdate($id)
+    {
+        $category = Category::find($id);
+        return view('backend.pages.categories.categoryUpdate', compact('category'));
+    }
+
+    public function categoryStore(Request $request, $id)
+    {
+        $category = Category::find($id);
+        $category->update([
             'categoryName' => $request->categoryName,
             'categoryDescription' => $request->categoryDescription,
         ]);

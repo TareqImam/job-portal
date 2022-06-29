@@ -9,6 +9,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,10 @@
             <td>{{$data->id}}</td>
             <td>{{$data->categoryName}}</td>
             <td>{{$data->categoryDescription}}</td>
+            <td>
+                <a href="{{route('categoryUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
