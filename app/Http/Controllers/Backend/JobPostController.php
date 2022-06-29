@@ -14,10 +14,12 @@ class JobPostController extends Controller
         // dd($jobPost);
         return view('backend.pages.jobs.jobs', compact('jobPost'));
     }
+
     public function jobPostForm()
     {
         return view('backend.pages.jobs.jobForm');
     }
+    
     public function jobPostSubmit(Request $request)
     {
         // dd($request->all());

@@ -9,6 +9,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,10 @@
             <td>{{$data->id}}</td>
             <td>{{$data->applicantName}}</td>
             <td>{{$data->applicantEmail}}</td>
+            <td>
+                <a href="{{route('applicantUpdate',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

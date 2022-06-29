@@ -14,10 +14,12 @@ class EmployerController extends Controller
         // dd($employer);
         return view('backend.pages.employers.employers', compact('employer'));
     }
+
     public function employerForm()
     {
         return view('backend.pages.employers.employerForm');
     }
+    
     public function employerSubmit(Request $request)
     {
         // dd($request->all());
@@ -31,4 +33,5 @@ class EmployerController extends Controller
         $employer = Employer::all();
         return redirect()->route('employer');
     }
+    
 }

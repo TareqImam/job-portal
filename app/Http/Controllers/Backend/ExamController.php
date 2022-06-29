@@ -13,10 +13,12 @@ class ExamController extends Controller
         $exam = Exam::all();
         return view('backend.pages.exams.exams', compact('exam'));
     }
+
     public function examForm()
     {
         return view('backend.pages.exams.examForm');
     }
+    
     public function examSubmit(Request $request)
     {
         // dd($request);

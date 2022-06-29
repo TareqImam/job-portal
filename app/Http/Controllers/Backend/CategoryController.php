@@ -13,10 +13,12 @@ class CategoryController extends Controller
         $category = Category::all();
         return view('backend.pages.categories.categories', compact('category'));
     }
+
     public function categoryForm()
     {
         return view('backend.pages.categories.categoryForm');
     }
+    
     public function categorySubmit(Request $request)
     {
         Category::create([
