@@ -19,7 +19,7 @@ class EmployerController extends Controller
     {
         return view('backend.pages.employers.employerForm');
     }
-    
+
     public function employerSubmit(Request $request)
     {
         // dd($request->all());
@@ -33,5 +33,23 @@ class EmployerController extends Controller
         $employer = Employer::all();
         return redirect()->route('employer');
     }
-    
+
+    public function employerUpdate($id)
+    {
+        $employer = Employer::find($id);
+        return view('backend.pages.employers.employerUpdate', compact('employer'));
+    }
+
+    public function employerStore(Request $request, $id)
+    {
+        $employer = Employer::find($id);
+        $employer->update([
+            'employerName' => $request->employerName,
+            'employerEmail' => $request->employerEmail,
+            'employerPassword' => $request->employerPassword,
+            'employerCategory' => $request->employerCategory,
+            'employerType' => $request->employerType
+        ]);
+        return redirect()->route('employer');
+    }
 }

@@ -49,6 +49,10 @@ Route::get('/employers/form', [EmployerController::class, 'employerForm'])->name
 
 Route::post('/employers/submit', [EmployerController::class, 'employerSubmit'])->name('employerSubmit');
 
+Route::get('employer/update/{id}', [EmployerController::class, 'employerUpdate'])->name('employerUpdate');
+
+Route::put('/employer/update/store/{id}', [EmployerController::class, 'employerStore'])->name('employerStore');
+
 
 
 // -----------------------------Job Posting routes---------------------------//

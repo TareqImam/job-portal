@@ -11,6 +11,7 @@
             <th scope="col">Email</th>
             <th scope="col">Category</th>
             <th scope="col">Type</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,10 @@
             <td>{{$data->employerEmail}}</td>
             <td>{{$data->employerCategory}}</td>
             <td>{{$data->employerType}}</td>
+            <td>
+                <a href="{{route('employerUpdate',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
