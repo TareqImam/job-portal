@@ -2,7 +2,7 @@
 
 @section('backend_content')
 <h3>Edit Employe's info</h3>
-<form action="{{route('employerStore',$employer->id)}}" method="POST">
+<form action="{{route('employerStore', $employer->id)}}" method="POST">
     @method('PUT')
     @csrf
     <label for="" class="mt-3">Name</label>

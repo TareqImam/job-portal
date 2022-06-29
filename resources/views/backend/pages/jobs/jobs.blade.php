@@ -13,6 +13,7 @@
             <th>Position</th>
             <th>Location</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,10 @@
             <td>{{$data->jobPostPosition}}</td>
             <td>{{$data->jobPostLocation}}</td>
             <td>{{$data->jobPostDescription}}</td>
+            <td>
+                <a href="{{route('jobPostUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

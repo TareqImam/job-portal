@@ -62,6 +62,10 @@ Route::get('/job-post/form', [JobPostController::class, 'jobPostForm'])->name('j
 
 Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->name('jobPostSubmit');
 
+Route::get('/job-post/update/{id}', [JobPostController::class, 'jobPostUpdate'])->name('jobPostUpdate');
+
+Route::put('/job-post/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
+
 
 
 // -----------------------------Categories routes---------------------------//
