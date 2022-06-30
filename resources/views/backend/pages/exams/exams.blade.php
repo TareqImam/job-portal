@@ -14,15 +14,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($exam as $data)
+        @foreach($exam as $key=>$data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$data->examName}}</td>
             <td>{{$data->examSet}}</td>
             <td>{{$data->examType}}</td>
             <td>
                 <a href="{{route('examUpdate', $data->id)}}" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{{route('examDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

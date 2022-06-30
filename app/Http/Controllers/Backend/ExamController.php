@@ -46,4 +46,10 @@ class ExamController extends Controller
         ]);
         return redirect()->route('exam');
     }
+
+    public function examDelete($id)
+    {
+        $exam = Exam::find($id)->delete();
+        return redirect()->back();
+    }
 }

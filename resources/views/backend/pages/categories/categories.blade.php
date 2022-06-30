@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($category as $data)
+        @foreach($category as $key=>$data)
         <tr>
-            <td>{{$data->id}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$data->categoryName}}</td>
             <td>{{$data->categoryDescription}}</td>
             <td>
                 <a href="{{route('categoryUpdate', $data->id)}}" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{{route('categoryDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

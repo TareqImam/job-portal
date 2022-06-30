@@ -85,6 +85,8 @@ Route::get('/categories/update/{id}', [CategoryController::class, 'categoryUpdat
 
 Route::put('/categories/update/store/{id}', [CategoryController::class, 'categoryStore'])->name('categoryStore');
 
+Route::get('/categories/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('categoryDelete');
+
 
 
 // -----------------------------Exam routes---------------------------//
@@ -97,3 +99,5 @@ Route::post('/exam/submit', [ExamController::class, 'examSubmit'])->name('examSu
 Route::get('/exam/update/{id}', [ExamController::class, 'examUpdate'])->name('examUpdate');
 
 Route::put('/exam/update/store/{id}', [ExamController::class, 'examStore'])->name('examStore');
+
+Route::get('/exam/delete/{id}', [ExamController::class, 'examDelete'])->name('examDelete');
