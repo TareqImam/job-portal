@@ -10,7 +10,7 @@ class JobPostController extends Controller
 {
     public function jobPostView()
     {
-        $jobPost = JobPost::all();
+        $jobPost = JobPost::paginate(5);
         // dd($jobPost);
         return view('backend.pages.jobs.jobs', compact('jobPost'));
     }

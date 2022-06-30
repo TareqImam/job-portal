@@ -10,7 +10,7 @@ class ApplicantController extends Controller
 {
     public function applicantView()
     {
-        $applicant = Applicant::all();
+        $applicant = Applicant::paginate(5);
         // dd($applicant);
         return view('backend.pages.applicants.applicants', compact('applicant'));
     }

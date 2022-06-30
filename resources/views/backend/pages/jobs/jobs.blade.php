@@ -36,5 +36,5 @@
         </tbody>
     </table>
 </div>
-
+{{$jobPost->links()}}
 @endsection

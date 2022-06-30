@@ -10,7 +10,7 @@ class ExamController extends Controller
 {
     public function examview()
     {
-        $exam = Exam::all();
+        $exam = Exam::paginate(5);
         return view('backend.pages.exams.exams', compact('exam'));
     }
 
