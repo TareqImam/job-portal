@@ -9,6 +9,12 @@
     <input type="text" class="form-control" name="examSet">
     <label for="" class="mt-3">Type</label>
     <input type="text" class="form-control" name="examType">
+    <label for="" class="mt-3">Job Post</label>
+    <select class="form-select" name="jobPostId" id="">
+        @foreach ($jobPost as $data)
+        <option value="{{$data->id}}">{{$data->jobPostName}}</option>
+        @endforeach
+    </select>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
 @endsection

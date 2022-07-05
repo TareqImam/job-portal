@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Exam;
+use App\Models\JobPost;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -16,7 +17,8 @@ class ExamController extends Controller
 
     public function examForm()
     {
-        return view('backend.pages.exams.examForm');
+        $jobPost = JobPost::all();
+        return view('backend.pages.exams.examForm', compact('jobPost'));
     }
 
     public function examSubmit(Request $request)
@@ -25,7 +27,8 @@ class ExamController extends Controller
         Exam::create([
             'examName' => $request->examName,
             'examSet' => $request->examSet,
-            'examType' => $request->examType
+            'examType' => $request->examType,
+            'jobPostId' => $request->jobPostId
         ]);
         return redirect()->route('exam');
     }

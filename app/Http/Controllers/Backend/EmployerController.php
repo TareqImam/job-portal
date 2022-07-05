@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class EmployerController extends Controller
 
     public function employerForm()
     {
-        return view('backend.pages.employers.employerForm');
+        $category = Category::all();
+        return view('backend.pages.employers.employerForm', compact('category'));
     }
 
     public function employerSubmit(Request $request)
@@ -27,7 +29,7 @@ class EmployerController extends Controller
             'employerName' => $request->employerName,
             'employerEmail' => $request->employerEmail,
             'employerPassword' => $request->employerPassword,
-            'employerCategory' => $request->employerCategory,
+            'categoryId' => $request->categoryId,
             'employerType' => $request->employerType
         ]);
         $employer = Employer::all();

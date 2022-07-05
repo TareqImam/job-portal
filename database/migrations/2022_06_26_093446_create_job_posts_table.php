@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('jobPostVacancy');
             $table->string('jobPostPosition');
             $table->string('jobPostLocation');
+            $table->integer('categoryId');
+            $table->integer('employerId');
             $table->string('jobPostDescription');
             $table->timestamps();
         });

@@ -10,7 +10,11 @@
     <label for="" class="mt-3">Password</label>
     <input type="password" class="form-control" name="employerPassword">
     <label for="" class="mt-3">Category</label>
-    <input type="text" class="form-control" name="employerCategory">
+    <select class="form-select" name="categoryId" id="">
+        @foreach ($category as $data)
+        <option value="{{$data->id}}">{{$data->categoryName}}</option>
+        @endforeach
+    </select>
     <label for="" class="mt-3">Type</label>
     <input type="text" class="form-control" name="employerType">
     <button type="submit" class="btn mt-3 btn-primary">Submit</button>

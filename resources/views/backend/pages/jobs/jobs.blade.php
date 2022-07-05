@@ -9,6 +9,8 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Employer</th>
+                <th>Category</th>
                 <th>Type</th>
                 <th>Vacancy</th>
                 <th>Position</th>
@@ -22,6 +24,8 @@
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$data->jobPostName}}</td>
+                <td>{{$data->employerId}}</td>
+                <td>{{$data->categoryId}}</td>
                 <td>{{$data->jobPostType}}</td>
                 <td>{{$data->jobPostVacancy}}</td>
                 <td>{{$data->jobPostPosition}}</td>

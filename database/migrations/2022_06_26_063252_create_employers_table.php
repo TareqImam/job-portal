@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('employerName');
             $table->string('employerEmail');
             $table->string('employerPassword');
-            $table->string('employerCategory');
+            $table->integer('categoryId');
             $table->string('employerType');
             $table->timestamps();
         });

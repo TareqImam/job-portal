@@ -19,7 +19,7 @@
             <td>{{$data->applicantName}}</td>
             <td>{{$data->applicantEmail}}</td>
             <td>
-                <a href="{{route('applicantUpdate',$data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('applicantUpdate', $data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('applicantDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

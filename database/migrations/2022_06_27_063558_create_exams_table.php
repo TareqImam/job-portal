@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('examName');
             $table->string('examSet');
             $table->string('examType');
+            $table->integer('jobPostId');
             $table->timestamps();
         });
     }

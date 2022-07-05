@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>IntelliJobs</title>
     <link rel="stylesheet" href="{{url('backend/vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{url('backend/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{url('backend/vendors/ti-icons/css/themify-icons.css')}}">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{url('backend/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" href="{{url('backend/js/select.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{url('backend/css/vertical-layout-light/style.css')}}">
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="{{url('backend/images/logo.svg')}}" />
 </head>
 
 <body>

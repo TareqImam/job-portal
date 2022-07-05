@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Employer;
 use App\Models\JobPost;
 use Illuminate\Http\Request;
 
@@ -17,7 +19,9 @@ class JobPostController extends Controller
 
     public function jobPostForm()
     {
-        return view('backend.pages.jobs.jobForm');
+        $category = Category::all();
+        $employer = Employer::all();
+        return view('backend.pages.jobs.jobForm', compact('category', 'employer'));
     }
 
     public function jobPostSubmit(Request $request)
@@ -25,6 +29,8 @@ class JobPostController extends Controller
         // dd($request->all());
         JobPost::create([
             'jobPostName' => $request->jobPostName,
+            'categoryId' => $request->categoryId,
+            'employerId' => $request->employerId,
             'jobPostType' => $request->jobPostType,
             'jobPostVacancy' => $request->jobPostVacancy,
             'jobPostPosition' => $request->jobPostPosition,
