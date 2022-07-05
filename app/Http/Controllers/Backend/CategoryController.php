@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function categoryView()
     {
-        $category = Category::paginate(5);
+        $category = Category::OrderBy('id', 'desc')->paginate(5);
         return view('backend.pages.categories.categories', compact('category'));
     }
 
