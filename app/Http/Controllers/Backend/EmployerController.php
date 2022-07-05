@@ -11,8 +11,8 @@ class EmployerController extends Controller
 {
     public function employerView()
     {
-        $employer = Employer::paginate(5);
-        // dd($employer);
+        $employer = Employer::with('category')->paginate(5);
+        
         return view('backend.pages.employers.employers', compact('employer'));
     }
 

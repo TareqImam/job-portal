@@ -9,4 +9,14 @@ class JobPost extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class, 'employerId', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'categoryId', 'id');
+    }
 }

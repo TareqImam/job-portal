@@ -21,7 +21,7 @@
             <td>{{$data->examName}}</td>
             <td>{{$data->examSet}}</td>
             <td>{{$data->examType}}</td>
-            <td>{{$data->jobPostId}}</td>
+            <td>{{$data->jobPost->jobPostName}}</td>
             <td>
                 <a href="{{route('examUpdate', $data->id)}}" class="btn btn-success">Edit</a>
                 <a href="{{route('examDelete', $data->id)}}" class="btn btn-danger">Delete</a>

@@ -11,7 +11,7 @@ class ExamController extends Controller
 {
     public function examview()
     {
-        $exam = Exam::paginate(5);
+        $exam = Exam::with('jobPost')->paginate(5);
         return view('backend.pages.exams.exams', compact('exam'));
     }
 

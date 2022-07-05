@@ -9,4 +9,9 @@ class Exam extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function jobPost()
+    {
+        return $this->belongsTo(JobPost::class, 'jobPostId', 'id');
+    }
 }
