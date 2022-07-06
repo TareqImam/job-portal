@@ -21,6 +21,11 @@ class CategoryController extends Controller
 
     public function categorySubmit(Request $request)
     {
+        $request->validate([
+            'categoryName' => 'required',
+            'categoryDescription' => 'required'
+        ]);
+
         Category::create([
             'categoryName' => $request->categoryName,
             'categoryDescription' => $request->categoryDescription,

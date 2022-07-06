@@ -27,6 +27,15 @@ class JobPostController extends Controller
     public function jobPostSubmit(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'jobPostName' => 'reqruired',
+            'categoryId' => 'reqruired',
+            'employerId' => 'reqruired',
+            'jobPostType' => 'reqruired',
+            'jobPostVacancy' => 'reqruired',
+            'jobPostPosition' => 'reqruired'
+        ]);
+
         JobPost::create([
             'jobPostName' => $request->jobPostName,
             'categoryId' => $request->categoryId,

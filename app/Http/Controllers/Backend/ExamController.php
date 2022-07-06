@@ -24,6 +24,13 @@ class ExamController extends Controller
     public function examSubmit(Request $request)
     {
         // dd($request);
+        $request->validate([
+            'examName' => 'required',
+            'examSet' => 'required',
+            'examType' => 'required',
+            'jobPostId' => 'required'
+        ]);
+
         Exam::create([
             'examName' => $request->examName,
             'examSet' => $request->examSet,

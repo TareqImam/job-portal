@@ -25,6 +25,14 @@ class EmployerController extends Controller
     public function employerSubmit(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'employerName' => 'required',
+            'employerEmail' => 'required',
+            'employerPassword' => 'required',
+            'categoryId' => 'required',
+            'employerType' => 'required'
+        ]);
+
         Employer::create([
             'employerName' => $request->employerName,
             'employerEmail' => $request->employerEmail,

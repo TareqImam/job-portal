@@ -23,6 +23,12 @@ class ApplicantController extends Controller
     public function applicantSubmit(Request $request)
     {
         // dd($request->all());
+        $request -> validate([
+            'applicantName' => 'required',
+            'applicantEmail' => 'required',
+            'applicantPassword' => 'required',
+        ]);
+
         Applicant::create([
             'applicantName' => $request->applicantName,
             'applicantEmail' => $request->applicantEmail,
