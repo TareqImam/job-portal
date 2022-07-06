@@ -4,10 +4,13 @@
 <form action="{{route('categoryStore', $category->id)}}" method="POST">
     @method('PUT')
     @csrf
+
     <label for="" class="mt-3">Name</label>
-    <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryName">
+    <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryName" required>
+
     <label for="" class="mt-3">Description</label>
-    <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryDescription">
+    <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryDescription" required>
+
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
 @endsection

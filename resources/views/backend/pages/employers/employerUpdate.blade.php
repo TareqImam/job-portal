@@ -5,16 +5,22 @@
 <form action="{{route('employerStore', $employer->id)}}" method="POST">
     @method('PUT')
     @csrf
+
     <label for="" class="mt-3">Name</label>
-    <input type="text" class="form-control" value="{{$employer->employerName}}" name="employerName">
+    <input type="text" class="form-control" value="{{$employer->employerName}}" name="employerName" required>
+
     <label for="" class="mt-3">Email</label>
-    <input type="email" class="form-control" value="{{$employer->employerEmail}}" name="employerEmail">
+    <input type="email" class="form-control" value="{{$employer->employerEmail}}" name="employerEmail" required>
+
     <label for="" class="mt-3">Password</label>
-    <input type="password" class="form-control" value="{{$employer->employerPassword}}" name="employerPassword">
+    <input type="password" class="form-control" value="{{$employer->employerPassword}}" name="employerPassword" required>
+
     <label for="" class="mt-3">Category</label>
-    <input type="text" class="form-control" value="{{$employer->employerCategory}}" name="employerCategory">
+    <input type="text" class="form-control" value="{{$employer->employerCategory}}" name="employerCategory" required>
+
     <label for="" class="mt-3">Type</label>
-    <input type="text" class="form-control" value="{{$employer->employerType}}" name="employerType">
+    <input type="text" class="form-control" value="{{$employer->employerType}}" name="employerType" required>
+
     <button type="submit" class="btn mt-3 btn-primary">Submit</button>
 </form>
 @endsection
