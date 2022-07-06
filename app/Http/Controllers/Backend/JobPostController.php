@@ -28,12 +28,12 @@ class JobPostController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'jobPostName' => 'reqruired',
-            'categoryId' => 'reqruired',
-            'employerId' => 'reqruired',
-            'jobPostType' => 'reqruired',
-            'jobPostVacancy' => 'reqruired',
-            'jobPostPosition' => 'reqruired'
+            'jobPostName' => 'required',
+            'categoryId' => 'required',
+            'employerId' => 'required',
+            'jobPostType' => 'required',
+            'jobPostVacancy' => 'required',
+            'jobPostPosition' => 'required'
         ]);
 
         JobPost::create([

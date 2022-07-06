@@ -2,6 +2,17 @@
 
 @section('backend_content')
 <h3>Edit Job Post</h3>
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul class="list-unstyled">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <form action="{{route('jobPostStore', $jobPost->id)}}" method="POST">
     @method('PUT')
     @csrf
