@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+/* ------------------------------------------------ */
+/* ------------------ Admin Panel------------------ */
+/* ------------------------------------------------ */
+
 use App\Http\Controllers\Backend\MasterController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ApplicantController;
@@ -8,6 +13,12 @@ use App\Http\Controllers\Backend\EmployerController;
 use App\Http\Controllers\Backend\JobPostController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ExamController;
+
+/* ------------------------------------------------ */
+/* ------------------ Front Panel------------------ */
+/* ------------------------------------------------ */
+
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +31,16 @@ use App\Http\Controllers\Backend\ExamController;
 |
 */
 
+
+
+/* ------------------------------------------------ */
+/* ------------------ Admin Panel------------------ */
+/* ------------------------------------------------ */
+
+
 /* ------------------ master view------------------ */
 
-Route::get('/', [MasterController::class, 'masterview'])->name('master');
+Route::get('/admin', [MasterController::class, 'masterview'])->name('master');
 
 /* ------------------ admin panel pages------------------ */
 Route::get('/dashboard', [DashboardController::class, 'dashboardview'])->name('dashboard');
@@ -101,3 +119,18 @@ Route::get('/exam/update/{id}', [ExamController::class, 'examUpdate'])->name('ex
 Route::put('/exam/update/store/{id}', [ExamController::class, 'examStore'])->name('examStore');
 
 Route::get('/exam/delete/{id}', [ExamController::class, 'examDelete'])->name('examDelete');
+
+
+/* ------------------------------------------------ */
+/* ------------------ Admin Panel------------------ */
+/* ------------------------------------------------ */
+
+
+
+
+
+/* ------------------------------------------------ */
+/* ------------------ Front Panel------------------ */
+/* ------------------------------------------------ */
+
+Route::get('/', [HomeController::class, 'home'])->name('home');
