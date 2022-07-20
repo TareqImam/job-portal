@@ -3,8 +3,8 @@
 @section('backend_content')
 <h3 class="mb-3">Job Post list</h3>
 <a class="btn btn-primary mb-3" role="button" href="{{route('jobPostForm')}}">Add Jobs</a>
-<div class="">
-    <table class="table">
+<div class="container">
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th>#</th>

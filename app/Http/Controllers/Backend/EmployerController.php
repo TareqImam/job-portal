@@ -47,7 +47,8 @@ class EmployerController extends Controller
     public function employerUpdate($id)
     {
         $employer = Employer::find($id);
-        return view('backend.pages.employers.employerUpdate', compact('employer'));
+        $category = Category::all();
+        return view('backend.pages.employers.employerUpdate', compact('employer', 'category'));
     }
 
     public function employerStore(Request $request, $id)
@@ -57,7 +58,7 @@ class EmployerController extends Controller
             'employerName' => $request->employerName,
             'employerEmail' => $request->employerEmail,
             'employerPassword' => $request->employerPassword,
-            'employerCategory' => $request->employerCategory,
+            'categoryId' => $request->categoryId,
             'employerType' => $request->employerType
         ]);
         return redirect()->route('employer');

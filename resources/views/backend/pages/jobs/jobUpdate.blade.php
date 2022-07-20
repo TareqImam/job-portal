@@ -20,6 +20,20 @@
     <label for="" class="mt-3">Job name</label>
     <input type="text" class="form-control" value="{{$jobPost->jobPostName}}" name="jobPostName" required>
 
+    <label for="" class="mt-3">Employer</label>
+    <select class="form-select" name="employerId" id="" required>
+        @foreach ($employer as $data)
+        <option value="{{$data->id}}">{{$data->employerName}}</option>
+        @endforeach
+    </select>
+
+    <label for="" class="mt-3">Category</label>
+    <select class="form-select" name="categoryId" id="" required>
+        @foreach ($category as $data)
+        <option value="{{$data->id}}">{{$data->categoryName}}</option>
+        @endforeach
+    </select>
+
     <label for="" class="mt-3">Job Type</label>
     <input type="text" class="form-control" value="{{$jobPost->jobPostType}}" name="jobPostType" required>
 

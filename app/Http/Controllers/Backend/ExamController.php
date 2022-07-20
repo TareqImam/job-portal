@@ -43,7 +43,8 @@ class ExamController extends Controller
     public function examUpdate($id)
     {
         $exam = Exam::find($id);
-        return view('backend.pages.exams.examUpdate', compact('exam'));
+        $jobPost = JobPost::all();
+        return view('backend.pages.exams.examUpdate', compact('exam', 'jobPost'));
     }
 
     public function examStore(Request $request, $id)
@@ -52,7 +53,8 @@ class ExamController extends Controller
         $exam->update([
             'examName' => $request->examName,
             'examSet' => $request->examSet,
-            'examType' => $request->examType
+            'examType' => $request->examType,
+            'jobPostId' => $request->jobPostId
         ]);
         return redirect()->route('exam');
     }

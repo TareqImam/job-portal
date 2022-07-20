@@ -27,7 +27,11 @@
     <input type="password" class="form-control" value="{{$employer->employerPassword}}" name="employerPassword" required>
 
     <label for="" class="mt-3">Category</label>
-    <input type="text" class="form-control" value="{{$employer->employerCategory}}" name="employerCategory" required>
+    <select class="form-select" name="categoryId" id="" required>
+        @foreach ($category as $data)
+        <option value="{{$data->id}}">{{$data->categoryName}}</option>
+        @endforeach
+    </select>
 
     <label for="" class="mt-3">Type</label>
     <input type="text" class="form-control" value="{{$employer->employerType}}" name="employerType" required>
