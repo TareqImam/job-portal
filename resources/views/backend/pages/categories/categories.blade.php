@@ -19,7 +19,8 @@
             <td>{{$data->categoryName}}</td>
             <td>{{$data->categoryDescription}}</td>
             <td>
-                <a href="{{route('categoryUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('categorySingleView', $data->id)}}" class="btn btn-success">View</a>
+                <a href="{{route('categoryUpdate', $data->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('categoryDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

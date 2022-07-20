@@ -12,10 +12,6 @@
                 <th>Employer</th>
                 <th>Category</th>
                 <th>Type</th>
-                <th>Vacancy</th>
-                <th>Position</th>
-                <th>Location</th>
-                <th>Description</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,12 +23,9 @@
                 <td>{{$data->employer->employerName}}</td>
                 <td>{{$data->category->categoryName}}</td>
                 <td>{{$data->jobPostType}}</td>
-                <td>{{$data->jobPostVacancy}}</td>
-                <td>{{$data->jobPostPosition}}</td>
-                <td>{{$data->jobPostLocation}}</td>
-                <td>{{$data->jobPostDescription}}</td>
                 <td>
-                    <a href="{{route('jobPostUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                    <a href="{{route('jobPostSingleView', $data->id)}}" class="btn btn-success">View</a>
+                    <a href="{{route('jobPostUpdate', $data->id)}}" class="btn btn-primary">Edit</a>
                     <a href="{{route('jobPostDelete', $data->id)}}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

@@ -58,4 +58,10 @@ class ApplicantController extends Controller
         $applicant = Applicant::find($id)->delete();
         return redirect()->back();
     }
+
+    public function applicantSingleView($id)
+    {
+        $applicant = Applicant::find($id);
+        return view('backend.pages.applicants.applicantSingleView', compact('applicant'));
+    }
 }

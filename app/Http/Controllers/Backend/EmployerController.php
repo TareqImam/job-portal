@@ -69,4 +69,10 @@ class EmployerController extends Controller
         $employer = Employer::find($id)->delete();
         return redirect()->back();
     }
+
+    public function employerSingleView($id)
+    {
+        $employer = Employer::with('category')->find($id);
+        return view('backend.pages.employers.employerSingleView', compact('employer'));
+    }
 }

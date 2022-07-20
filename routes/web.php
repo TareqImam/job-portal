@@ -60,6 +60,8 @@ Route::put('/applicant/update/store/{id}', [ApplicantController::class, 'applica
 
 Route::get('/applicant/delete/{id}', [ApplicantController::class, 'applicantDelete'])->name('applicantDelete');
 
+Route::get('/applicant/applicantSingleView/{id}', [ApplicantController::class, 'applicantSingleView'])->name('applicantSingleView');
+
 
 
 // -----------------------------Employers routes---------------------------//
@@ -69,11 +71,13 @@ Route::get('/employers/form', [EmployerController::class, 'employerForm'])->name
 
 Route::post('/employers/submit', [EmployerController::class, 'employerSubmit'])->name('employerSubmit');
 
-Route::get('employer/update/{id}', [EmployerController::class, 'employerUpdate'])->name('employerUpdate');
+Route::get('/employer/update/{id}', [EmployerController::class, 'employerUpdate'])->name('employerUpdate');
 
 Route::put('/employer/update/store/{id}', [EmployerController::class, 'employerStore'])->name('employerStore');
 
 Route::get('/employers/delete/{id}', [EmployerController::class, 'employerDelete'])->name('employerDelete');
+
+Route::get('/employers/employerSingleView/{id}', [EmployerController::class, 'employerSingleView'])->name('employerSingleView');
 
 
 
@@ -90,6 +94,8 @@ Route::put('/job-post/update/store/{id}', [JobPostController::class, 'jobPostSto
 
 Route::get('/job-post/delete/{id}', [JobPostController::class, 'jobPostDelete'])->name('jobPostDelete');
 
+Route::get('/job-post/jobPostSingleView/{id}', [JobPostController::class, 'jobPostSingleView'])->name('jobPostSingleView');
+
 
 
 // -----------------------------Categories routes---------------------------//
@@ -105,6 +111,8 @@ Route::put('/categories/update/store/{id}', [CategoryController::class, 'categor
 
 Route::get('/categories/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('categoryDelete');
 
+Route::get('/categories/categorySingleView/{id}', [CategoryController::class, 'categorySingleView'])->name('categorySingleView');
+
 
 
 // -----------------------------Exam routes---------------------------//
@@ -119,6 +127,8 @@ Route::get('/exam/update/{id}', [ExamController::class, 'examUpdate'])->name('ex
 Route::put('/exam/update/store/{id}', [ExamController::class, 'examStore'])->name('examStore');
 
 Route::get('/exam/delete/{id}', [ExamController::class, 'examDelete'])->name('examDelete');
+
+Route::get('/exam/examSingleView/{id}', [ExamController::class, 'examSingleView'])->name('examSingleView');
 
 
 /* ------------------------------------------------ */

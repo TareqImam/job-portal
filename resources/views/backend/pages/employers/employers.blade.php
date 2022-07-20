@@ -24,7 +24,8 @@
             <td>{{$data->category->categoryName}}</td>
             <td>{{$data->employerType}}</td>
             <td>
-                <a href="{{route('employerUpdate', $data->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('employerSingleView', $data->id)}}" class="btn btn-success">View</a>
+                <a href="{{route('employerUpdate', $data->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('employerDelete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>

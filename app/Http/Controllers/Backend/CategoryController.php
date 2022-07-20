@@ -54,4 +54,9 @@ class CategoryController extends Controller
         $category = Category::find($id)->delete();
         return redirect()->back();
     }
+
+    public function categorySingleView($id){
+        $category = Category::find($id);
+        return view('backend.pages.categories.categorySingleView', compact('category'));
+    }
 }

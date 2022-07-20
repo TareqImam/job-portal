@@ -64,4 +64,10 @@ class ExamController extends Controller
         $exam = Exam::find($id)->delete();
         return redirect()->back();
     }
+
+    public function examSingleView($id)
+    {
+        $exam = Exam::with('jobPost')->find($id);
+        return view('backend.pages.exams.examSingleView', compact('exam'));
+    }
 }

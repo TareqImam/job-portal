@@ -76,4 +76,10 @@ class JobPostController extends Controller
         $jobPost = JobPost::find($id)->delete();
         return redirect()->back();
     }
+
+    public function jobPostSingleView($id)
+    {
+        $jobPost = JobPost::with('employer')->with('category')->find($id);
+        return view('backend.pages.jobs.jobPostSingleView', compact('jobPost'));
+    }
 }
