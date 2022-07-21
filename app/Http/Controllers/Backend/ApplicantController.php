@@ -28,10 +28,17 @@ class ApplicantController extends Controller
             'applicantPassword' => 'required',
         ]);
 
+        $applicantImage = null;
+        if ($request->hasfile('applicantImage')) {
+            $applicantImage = date('Ymdhsis') . '.' . $request->file('applicantImage')->getClientOriginalExtension();
+            $request->file('applicantImage')->storeAs('/uploads/applicants', $applicantImage);
+        }
+
         Applicant::create([
             'applicantName' => $request->applicantName,
             'applicantEmail' => $request->applicantEmail,
             'applicantPassword' => $request->applicantPassword,
+            'applicantImage' => $applicantImage
         ]);
         return redirect()->route('applicant');
     }
@@ -44,11 +51,24 @@ class ApplicantController extends Controller
 
     public function applicantStore(Request $request, $id)
     {
+        $request->validate([
+            'applicantName' => 'required',
+            'applicantEmail' => 'required',
+            'applicantPassword' => 'required',
+        ]);
+
+        $applicantImage = null;
+        if ($request->hasfile('applicantImage')) {
+            $applicantImage = date('Ymdhsis') . '.' . $request->file('applicantImage')->getClientOriginalExtension();
+            $request->file('applicantImage')->storeAs('/uploads/applicants', $applicantImage);
+        }
+
         $applicant = Applicant::find($id);
         $applicant->update([
             'applicantName' => $request->applicantName,
             'applicantEmail' => $request->applicantEmail,
             'applicantPassword' => $request->applicantPassword,
+            'applicantImage' => $applicantImage
         ]);
         return redirect()->route('applicant');
     }

@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<form action="{{route('applicantSubmit')}}" method="POST">
+<form action="{{route('applicantSubmit')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <label for="" class="mt-3">Name</label>
@@ -24,6 +24,9 @@
 
     <label for="" class="mt-3">Password</label>
     <input type="password" class="form-control" placeholder="Password" name="applicantPassword" required>
+
+    <label for="" class="mt-3">Image</label>
+    <input type="file" class="form-control" name="applicantImage">
 
     <button type="submit" class="btn mt-3 btn-primary">Submit</button>
 </form>

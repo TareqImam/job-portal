@@ -28,6 +28,7 @@
 
     <label for="" class="mt-3">Category</label>
     <select class="form-select" name="categoryId" id="" required>
+        <option value="{{$employer->category->id}}">{{$employer->category->categoryName}}</option>
         @foreach ($category as $data)
         <option value="{{$data->id}}">{{$data->categoryName}}</option>
         @endforeach

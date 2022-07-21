@@ -22,6 +22,7 @@
 
     <label for="" class="mt-3">Employer</label>
     <select class="form-select" name="employerId" id="" required>
+        <option value="{{$jobPost->employer->id}}">{{$jobPost->employer->employerName}}</option>
         @foreach ($employer as $data)
         <option value="{{$data->id}}">{{$data->employerName}}</option>
         @endforeach
@@ -29,6 +30,7 @@
 
     <label for="" class="mt-3">Category</label>
     <select class="form-select" name="categoryId" id="" required>
+        <option value="{{$jobPost->category->id}}">{{$jobPost->category->categoryName}}</option>
         @foreach ($category as $data)
         <option value="{{$data->id}}">{{$data->categoryName}}</option>
         @endforeach

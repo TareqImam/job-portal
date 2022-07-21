@@ -33,12 +33,19 @@ class EmployerController extends Controller
             'employerType' => 'required'
         ]);
 
+        $employerImage = null;
+        if ($request->hasFile('employerImage')) {
+            $employerImage = date('Ymhsis') . '.' . $request->file('employerImage')->getClientOriginalExtension();
+            $request->file('employerImage')->storeAs('/uploads/employers', $employerImage);
+        }
+
         Employer::create([
             'employerName' => $request->employerName,
             'employerEmail' => $request->employerEmail,
             'employerPassword' => $request->employerPassword,
             'categoryId' => $request->categoryId,
-            'employerType' => $request->employerType
+            'employerType' => $request->employerType,
+            'employerImage' => $employerImage
         ]);
         $employer = Employer::all();
         return redirect()->route('employer');

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('employerPassword');
             $table->integer('categoryId');
             $table->string('employerType');
+            $table->string('employerImage')->nullable();
             $table->timestamps();
         });
     }

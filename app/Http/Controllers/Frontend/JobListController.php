@@ -7,12 +7,12 @@ use App\Models\Category;
 use App\Models\JobPost;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class JobListController extends Controller
 {
-    public function home()
+    public function jobListView()
     {
         $category = Category::all();
         $jobPost = JobPost::all();
-        return view('frontend.fixed.main', compact('category', 'jobPost'));
+        return view('frontend.pages.jobs.jobListing', compact('category', 'jobPost'));
     }
 }

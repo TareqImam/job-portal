@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('applicantName');
             $table->string('applicantEmail');
             $table->string('applicantPassword');
+            $table->string('applicantImage')->nullable();
             $table->timestamps();
         });
     }

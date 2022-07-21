@@ -1,3 +1,6 @@
+@extends('frontend.master')
+
+@section('frontend_content')
 <main>
 
     <!-- slider Area Start-->
@@ -55,18 +58,20 @@
                 </div>
             </div>
             <div class="row d-flex justify-contnet-center">
+                @foreach($category as $data)
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
                             <span class="flaticon-tour"></span>
                         </div>
                         <div class="services-cap">
-                            <h5><a href="job_listing.html">Design & Creative</a></h5>
+                            <h5><a href="job_listing.html">{{$data->categoryName}}</a></h5>
                             <span>(653)</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                @endforeach
+                <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
                             <span class="flaticon-cms"></span>
@@ -142,7 +147,7 @@
                             <span>(658)</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- More Btn -->
             <!-- Section Button -->
@@ -185,6 +190,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-10">
+                    @foreach($jobPost as $data)
                     <!-- single-job-content -->
                     <div class="single-job-items mb-30">
                         <div class="job-items">
@@ -193,7 +199,7 @@
                             </div>
                             <div class="job-tittle">
                                 <a href="job_details.html">
-                                    <h4>Digital Marketer</h4>
+                                    <h4>{{$data->jobPostName}}</h4>
                                 </a>
                                 <ul>
                                     <li>Creative Agency</li>
@@ -207,8 +213,9 @@
                             <span>7 hours ago</span>
                         </div>
                     </div>
+                    @endforeach
                     <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
+                    <!-- <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
                                 <a href="job_details.html"><img src="assets/img/icon/job-list2.png" alt=""></a>
@@ -228,9 +235,9 @@
                             <a href="job_details.html">Full Time</a>
                             <span>7 hours ago</span>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
+                    <!-- <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
                                 <a href="job_details.html"><img src="assets/img/icon/job-list3.png" alt=""></a>
@@ -250,9 +257,9 @@
                             <a href="job_details.html">Full Time</a>
                             <span>7 hours ago</span>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- single-job-content -->
-                    <div class="single-job-items mb-30">
+                    <!-- <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
                                 <a href="job_details.html"><img src="assets/img/icon/job-list4.png" alt=""></a>
@@ -272,7 +279,7 @@
                             <a href="job_details.html">Full Time</a>
                             <span>7 hours ago</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -497,3 +504,4 @@
     <!-- Blog Area End -->
 
 </main>
+@endsection

@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\ExamController;
 /* ------------------------------------------------ */
 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\JobListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -144,3 +145,7 @@ Route::get('/exam/examSingleView/{id}', [ExamController::class, 'examSingleView'
 /* ------------------------------------------------ */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+
+
+// -----------------------------Job List routes---------------------------//
+Route::get('/jobList', [JobListController::class, 'jobListView'])->name('jobList');
