@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Find job</a>
+                                    <a class="btn" href="#">Find job</a>
                                 </div>
                             </form>
                         </div>

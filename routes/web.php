@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\ExamController;
 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JobListController;
+use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,6 +146,14 @@ Route::get('/exam/examSingleView/{id}', [ExamController::class, 'examSingleView'
 /* ------------------------------------------------ */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+
+
+// -----------------------------Applicants routes---------------------------//
+Route::post('/registration', [FrontendApplicant::class, 'registration'])->name('registration');
+
+Route::post('/login', [FrontendApplicant::class, 'login'])->name('login');
+
+Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
 
 
 // -----------------------------Job List routes---------------------------//

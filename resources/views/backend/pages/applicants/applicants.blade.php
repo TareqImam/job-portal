@@ -2,7 +2,7 @@
 
 @section('backend_content')
 <h3 class="mb-3">Applicant's list</h3>
-<a class="btn mb-3 btn-primary" href="{{route('applicantForm')}}" role="button">Create Applicant</a>
+<!-- <a class="btn mb-3 btn-primary" href="{{route('applicantForm')}}" role="button">Create Applicant</a> -->
 <table class="table">
     <thead>
         <tr>
