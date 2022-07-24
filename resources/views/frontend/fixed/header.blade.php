@@ -22,9 +22,8 @@
                                         <li><a href="#">Page</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
                                                 <li><a href="elements.html">Elements</a></li>
-                                                <li><a href="job_details.html">job Details</a></li>
+                                                <li><a href="job_details.html">Job Details</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -33,14 +32,10 @@
                             </div>
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal1">
-                                    Register
-                                </button>
+                                <a href="{{route('selectRegAs')}}" class="btn">Register</a>
 
                                 @guest()
-                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal2">
-                                    Login
-                                </button>
+                                <a href="{{route('selectLoginAs')}}" class="btn">Login</a>
                                 @endguest
 
                                 @auth()
@@ -59,69 +54,4 @@
         </div>
     </div>
     <!-- Header End -->
-
-    <!-- Button trigger modal -->
-
-    <!-- Modal for registration -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Applicants Register here!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{route('registration')}}" method="POST">
-                        @csrf
-
-                        <label for="" class="mt-3">Name</label>
-                        <input type="text" class="form-control" placeholder="Name" name="applicantName" required>
-
-                        <label for="" class="mt-3">Email</label>
-                        <input type="email" class="form-control" placeholder="Email" name="applicantEmail" required>
-
-                        <label for="" class="mt-3">Password</label>
-                        <input type="password" class="form-control" placeholder="Password" name="applicantPassword" required>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn">Submit</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for login -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login here!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{route('login')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-
-                        <label for="" class="mt-3">Email</label>
-                        <input type="email" class="form-control" placeholder="Email" name="applicantEmail" required>
-
-                        <label for="" class="mt-3">Password</label>
-                        <input type="password" class="form-control" placeholder="Password" name="applicantPassword" required>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn">Login</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Button trigger modal -->
 </header>

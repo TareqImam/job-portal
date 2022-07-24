@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\ExamController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JobListController;
 use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
+use App\Http\Controllers\Frontend\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,12 +150,24 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
 // -----------------------------Applicants routes---------------------------//
+Route::get('/selectRegAs', [FrontendApplicant::class, 'selectRegAs'])->name('selectRegAs');
+
+Route::get('/selectLoginAs', [FrontendApplicant::class, 'selectLoginAs'])->name('selectLoginAs');
+
+Route::get('/selectApplicant', [FrontendApplicant::class, 'selectApplicant'])->name('selectApplicant');
+
 Route::post('/registration', [FrontendApplicant::class, 'registration'])->name('registration');
 
-Route::post('/login', [FrontendApplicant::class, 'login'])->name('login');
+Route::get('/loginApplicant', [FrontendApplicant::class, 'loginApplicant'])->name('loginApplicant');
+
+Route::post('/user-login', [FrontendApplicant::class, 'login'])->name('login');
 
 Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
 
 
 // -----------------------------Job List routes---------------------------//
 Route::get('/jobList', [JobListController::class, 'jobListView'])->name('jobList');
+
+
+
+// -----------------------------Registration routes---------------------------//

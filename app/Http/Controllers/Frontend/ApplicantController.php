@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ApplicantController extends Controller
 {
+    public function selectRegAs()
+    {
+        return view('login.selectRegister');
+    }
+
+    public function selectApplicant()
+    {
+        return view('login.registerApplicant');
+    }
+
     public function registration(Request $request)
     {
         Applicant::create([
@@ -27,8 +37,19 @@ class ApplicantController extends Controller
         return redirect()->route('home');
     }
 
+    public function selectLoginAs()
+    {
+        return view('login.selectLogin');
+    }
+
+    public function loginApplicant()
+    {
+        return view('login.loginApplicant');
+    }
+
     public function login(Request $request)
     {
+
         Auth::attempt([
             'email' => $request->applicantEmail,
             'password' => $request->applicantPassword
@@ -42,5 +63,10 @@ class ApplicantController extends Controller
         Auth::logout();
 
         return redirect()->route('home');
+    }
+
+    public function loginBlade()
+    {
+        dd("hello");
     }
 }
