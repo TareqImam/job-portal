@@ -12,7 +12,7 @@
                     </div>
                     <h3 class="text-center mb-4">Login As..</h3>
                     <a href="{{route('loginApplicant')}}" class="btn btn-primary rounded submit p-3 px-5">Applicant</a>
-                    <a href="" class="btn btn-primary rounded submit p-3 px-5">Employer</a>
+                    <a href="{{route('loginEmployer')}}" class="btn btn-primary rounded submit p-3 px-5">Employer</a>
                 </div>
             </div>
         </div>

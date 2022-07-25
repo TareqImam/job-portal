@@ -32,9 +32,8 @@
                             </div>
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
-                                <a href="{{route('selectRegAs')}}" class="btn">Register</a>
-
                                 @guest()
+                                <a href="{{route('selectRegAs')}}" class="btn">Register</a>
                                 <a href="{{route('selectLoginAs')}}" class="btn">Login</a>
                                 @endguest
 

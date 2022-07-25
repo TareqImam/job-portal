@@ -17,17 +17,12 @@ class ApplicantController extends Controller
 
     public function selectApplicant()
     {
+        // dd('ooo');
         return view('login.registerApplicant');
     }
 
     public function registration(Request $request)
     {
-        Applicant::create([
-            'applicantName' => $request->applicantName,
-            'applicantEmail' => $request->applicantEmail,
-            'applicantPassword' => bcrypt($request->applicantPassword)
-        ]);
-
         User::create([
             'name' => $request->applicantName,
             'email' => $request->applicantEmail,
@@ -49,7 +44,6 @@ class ApplicantController extends Controller
 
     public function login(Request $request)
     {
-
         Auth::attempt([
             'email' => $request->applicantEmail,
             'password' => $request->applicantPassword

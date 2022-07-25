@@ -11,16 +11,16 @@
                         <span class="fa fa-user-o"></span>
                     </div>
                     <h3 class="text-center mb-4">Register As Applicant</h3>
-                    <form action="{{route('registrationApplicant')}}" class="login-form" method="POST">
+                    <form action="{{route('registrationEmployer')}}" class="login-form" method="POST">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control rounded-left" placeholder="Name" name="applicantName" required />
+                            <input type="text" class="form-control rounded-left" placeholder="Name" name="employerName" required />
                         </div>
                         <div class="form-group d-flex">
-                            <input type="email" class="form-control rounded-left" placeholder="Email" name="applicantEmail" required />
+                            <input type="email" class="form-control rounded-left" placeholder="Email" name="employerEmail" required />
                         </div>
                         <div class="form-group d-flex">
-                            <input type="password" class="form-control rounded-left" placeholder="Password" name="applicantPassword" required />
+                            <input type="password" class="form-control rounded-left" placeholder="Password" name="employerPassword" required />
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary rounded submit p-3 px-5">
