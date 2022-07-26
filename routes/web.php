@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JobListController;
 use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
+use App\Http\Controllers\Frontend\CategoryListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -149,6 +150,7 @@ Route::get('/exam/examSingleView/{id}', [ExamController::class, 'examSingleView'
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
+
 // -----------------------------Applicants routes---------------------------//
 Route::get('/selectRegAs', [FrontendApplicant::class, 'selectRegAs'])->name('selectRegAs');
 
@@ -165,6 +167,7 @@ Route::post('/user-login', [FrontendApplicant::class, 'login'])->name('login');
 Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
 
 
+
 // -----------------------------Employer routes---------------------------//
 Route::get('/selectEmployer', [FrontendEmployer::class, 'selectEmployer'])->name('selectEmployer');
 
@@ -175,5 +178,11 @@ Route::get('/loginEmployer', [FrontendEmployer::class, 'loginEmployer'])->name('
 Route::post('/employerLogin', [FrontendEmployer::class, 'loginE'])->name('employerLogin');
 
 
+
 // -----------------------------Job List routes---------------------------//
 Route::get('/jobList', [JobListController::class, 'jobListView'])->name('jobList');
+
+
+
+// -----------------------------Catogories routes---------------------------//
+Route::get('/categoryList', [CategoryListController::class, 'categoryList'])->name('categoryList');

@@ -4,13 +4,13 @@
         <div class="headder-top header-sticky">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-2">
+                    <div class="col-lg-2 col-md-2">
                         <!-- Logo -->
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        <div class="logo" style="width: 25px;">
+                            <a href="{{route('home')}}"><img src="{{url('backend/images/logo.svg')}}" alt="""><span style=" color: #29ABE2;;">Intelli</span><span style="color: #F4777C;">Jobs</span></a>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-9">
+                    <div class=" col-lg-10 col-md-10">
                         <div class="menu-wrapper">
                             <!-- Main-menu -->
                             <div class="main-menu">
@@ -18,15 +18,17 @@
                                     <ul id="navigation">
                                         <li><a href="{{route('home')}}">Home</a></li>
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="#">Page</a>
+                                        <li><a href="#">Find an Employer</a></li>
+                                        <li><a href="{{route('categoryList')}}">Categories</a>
+                                        </li>
+                                        <li><a href="contact.html">About</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                                <li><a href="job_details.html">Job Details</a></li>
+                                                <li><a href="blog.html">About Us</a></li>
+                                                <li><a href="blog.html">Contact</a></li>
+                                                <li><a href="elements.html">Blogs</a></li>
+                                                <li><a href="job_details.html">Job News</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

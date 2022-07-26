@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                                 <div class="items-link items-link2 f-right">
-                                    <a href="job_details.html">Full Time</a>
+                                    <a href="{{route('selectLoginAs')}}">Apply</a>
                                     <span>7 hours ago</span>
                                 </div>
                             </div>

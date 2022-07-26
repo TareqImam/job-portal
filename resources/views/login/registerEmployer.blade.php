@@ -10,7 +10,7 @@
                     <div class="icon d-flex align-items-center justify-content-center">
                         <span class="fa fa-user-o"></span>
                     </div>
-                    <h3 class="text-center mb-4">Register As Applicant</h3>
+                    <h3 class="text-center mb-4">Register As Employer</h3>
                     <form action="{{route('registrationEmployer')}}" class="login-form" method="POST">
                         @csrf
                         <div class="form-group">
