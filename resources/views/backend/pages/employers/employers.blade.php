@@ -2,7 +2,6 @@
 
 @section('backend_content')
 <h3 class="mb-3">Employer's List</h3>
-<a class="btn mb-3 btn-primary" href="{{route('employerForm')}}" role="button">Add Employer</a>
 <table class="table">
     <thead>
         <tr>

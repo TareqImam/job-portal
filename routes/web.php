@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\JobListController;
 use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
 use App\Http\Controllers\Frontend\CategoryListController;
+use App\Http\Controllers\Frontend\ApplicantProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +166,8 @@ Route::get('/loginApplicant', [FrontendApplicant::class, 'loginApplicant'])->nam
 Route::post('/user-login', [FrontendApplicant::class, 'login'])->name('login');
 
 Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
+
+Route::get('/applicantPanel', [ApplicantProfileController::class, 'applicantPanel'])->name('applicantPanel');
 
 
 

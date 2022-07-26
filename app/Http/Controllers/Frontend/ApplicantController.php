@@ -49,7 +49,7 @@ class ApplicantController extends Controller
             'password' => $request->applicantPassword
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('applicantPanel');
     }
 
     public function logout()
