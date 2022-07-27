@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
 use App\Http\Controllers\Frontend\CategoryListController;
 use App\Http\Controllers\Frontend\ApplicantProfileController;
+use App\Models\Applicant;
 
 /*
 |--------------------------------------------------------------------------
@@ -167,7 +168,20 @@ Route::post('/user-login', [FrontendApplicant::class, 'login'])->name('login');
 
 Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
 
+
+
+// -----------------------------Applicant Profile routes---------------------------//
 Route::get('/applicantPanel', [ApplicantProfileController::class, 'applicantPanel'])->name('applicantPanel');
+
+Route::get('/myJobs', [ApplicantProfileController::class, 'myJobs'])->name('myJobs');
+
+Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
+
+Route::get('/update', [ApplicantProfileController::class, 'update'])->name('update');
+
+Route::get('/changePassword', [ApplicantProfileController::class, 'changePassword'])->name('changePassword');
+
+
 
 
 

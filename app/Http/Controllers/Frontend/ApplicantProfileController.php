@@ -9,6 +9,11 @@ class ApplicantProfileController extends Controller
 {
     public function applicantPanel()
     {
-        return view('frontend.profile.applicant.applicantPanel');
+        return view('frontend.profile.applicant.profile.profile');
+    }
+
+    public function myJobs()
+    {
+        return view('frontend.profile.applicant.profile.jobs');
     }
 }
