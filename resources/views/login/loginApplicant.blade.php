@@ -11,13 +11,13 @@
                         <span class="fa fa-user-o"></span>
                     </div>
                     <h3 class="text-center mb-4">Login As Applicant</h3>
-                    <form action="{{route('login')}}" class="login-form" method="POST">
+                    <form action="{{route('applicantLogin')}}" class="login-form" method="POST">
                         @csrf
                         <div class="form-group d-flex">
-                            <input type="email" class="form-control rounded-left" placeholder="Email" name="applicantEmail" required />
+                            <input type="email" class="form-control rounded-left" placeholder="Email" name="email" required />
                         </div>
                         <div class="form-group d-flex">
-                            <input type="password" class="form-control rounded-left" placeholder="Password" name="applicantPassword" required />
+                            <input type="password" class="form-control rounded-left" placeholder="Password" name="password" required />
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary rounded submit p-3 px-5">

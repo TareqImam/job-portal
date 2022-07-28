@@ -42,11 +42,11 @@ class ApplicantController extends Controller
         return view('login.loginApplicant');
     }
 
-    public function login(Request $request)
+    public function loginA(Request $request)
     {
         Auth::attempt([
-            'email' => $request->applicantEmail,
-            'password' => $request->applicantPassword
+            'email' => $request->email,
+            'password' => $request->password
         ]);
 
         return redirect()->route('applicantPanel');
@@ -59,8 +59,4 @@ class ApplicantController extends Controller
         return redirect()->route('home');
     }
 
-    public function loginBlade()
-    {
-        dd("hello");
-    }
 }
