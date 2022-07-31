@@ -57,6 +57,8 @@ class JobPostController extends Controller
         return view('backend.pages.jobs.jobUpdate', compact('jobPost', 'category', 'employer'));
     }
 
+    
+
     public function jobPostStore(Request $request, $id)
     {
         $jobPost = JobPost::find($id);

@@ -20,8 +20,8 @@
             <td>{{$data->applicantEmail}}</td>
             <td>
                 <a href="{{route('applicantSingleView', $data->id)}}" class="btn btn-success">View</a>
-                <a href="{{route('applicantUpdate', $data->id)}}" class="btn btn-primary">Edit</a>
-                <a href="{{route('applicantDelete', $data->id)}}" class="btn btn-danger">Delete</a>
+                <!-- <a href="{{route('applicantUpdate', $data->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{route('applicantDelete', $data->id)}}" class="btn btn-danger">Delete</a> -->
             </td>
         </tr>
         @endforeach

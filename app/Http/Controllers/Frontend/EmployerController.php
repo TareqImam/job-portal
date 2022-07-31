@@ -49,16 +49,12 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.employer');
     }
 
+    // ------------------------------Job methods-------------------------- //
+
     public function employerJobs()
     {
         $jobPost = JobPost::all();
-        return view('frontend.profile.employer.profile.jobs.postJob', compact('jobPost'));
-    }
-
-    public function employerExams()
-    {
-        $exam = Exam::all();
-        return view('frontend.profile.employer.profile.exam.postExam', compact('exam'));
+        return view('frontend.profile.employer.profile.jobs.job', compact('jobPost'));
     }
 
     public function addJob()
@@ -80,7 +76,7 @@ class EmployerController extends Controller
             'jobPostPosition' => 'required'
         ]);
 
-        JobPost::create([
+        JobPost::with('category')->with('employer')->create([
             'jobPostName' => $request->jobPostName,
             'categoryId' => $request->categoryId,
             'employerId' => $request->employerId,
@@ -91,5 +87,111 @@ class EmployerController extends Controller
             'jobPostDescription' => $request->jobPostDescription
         ]);
         return redirect()->route('employerJobs');
+    }
+
+    public function jobUpdate($id)
+    {
+        $jobPost = JobPost::find($id);
+        $category = Category::all();
+        $employer = Employer::all();
+        return view('frontend.profile.employer.profile.jobs.updateJob', compact('jobPost', 'category', 'employer'));
+    }
+
+    public function updateStore(Request $request, $id)
+    {
+        $jobPost = JobPost::with('category')->with('employer')->find($id);
+        $jobPost->update([
+            'jobPostName' => $request->jobPostName,
+            'categoryId' => $request->categoryId,
+            'employerId' => $request->employerId,
+            'jobPostType' => $request->jobPostType,
+            'jobPostVacancy' => $request->jobPostVacancy,
+            'jobPostPosition' => $request->jobPostPosition,
+            'jobPostLocation' => $request->jobPostLocation,
+            'jobPostDescription' => $request->jobPostDescription
+        ]);
+        return redirect()->route('employerJobs');
+    }
+
+    public function jobDelete($id)
+    {
+        $jobPost = JobPost::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function singleView($id)
+    {
+        $jobPost = JobPost::with('employer')->with('category')->find($id);
+        return view('frontend.profile.employer.profile.jobs.singleView', compact('jobPost'));
+    }
+
+    // ------------------------------Exam methods------------------------------- //
+
+    public function employerExams()
+    {
+        $exam = Exam::all();
+        return view('frontend.profile.employer.profile.exam.postExam', compact('exam'));
+    }
+
+    public function addExam()
+    {
+        $jobPost = JobPost::all();
+        return view('frontend.profile.employer.profile.exam.addExam', compact('jobPost'));
+    }
+
+    public function submitExam(Request $request)
+    {
+        $request->validate([
+            'examName' => 'required',
+            'examSet' => 'required',
+            'examType' => 'required',
+            'jobPostId' => 'required'
+        ]);
+
+        Exam::create([
+            'examName' => $request->examName,
+            'examSet' => $request->examSet,
+            'examType' => $request->examType,
+            'jobPostId' => $request->jobPostId
+        ]);
+        return redirect()->route('employerExams');
+    }
+
+    public function updateExam($id)
+    {
+        $exam = Exam::find($id);
+        $jobPost = JobPost::all();
+        return view('frontend.profile.employer.profile.exam.updateExam', compact('exam', 'jobPost'));
+    }
+
+    public function storeExam(Request $request, $id)
+    {
+        $request->validate([
+            'examName' => 'required',
+            'examSet' => 'required',
+            'examType' => 'required',
+            'jobPostId' => 'required'
+        ]);
+
+        $exam = Exam::with('jobPost')->find($id);
+        $exam->update([
+            'examName' => $request->examName,
+            'examSet' => $request->examSet,
+            'examType' => $request->examType,
+            'jobPostId' => $request->jobPostId
+        ]);
+        return redirect()->route('employerExams');
+    }
+
+    public function deleteExam($id)
+    {
+        $exam = Exam::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function singleViewE($id)
+    {
+        $exam = Exam::with('jobPost')->find($id);
+        return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
     }
 }

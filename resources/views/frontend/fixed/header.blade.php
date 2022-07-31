@@ -21,6 +21,7 @@
                                         <li><a href="#">Find an Employer</a></li>
                                         <li><a href="{{route('categoryList')}}">Categories</a>
                                         </li>
+                                        @guest()
                                         <li><a href="contact.html">About</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">About Us</a></li>
@@ -29,6 +30,7 @@
                                                 <li><a href="job_details.html">Job News</a></li>
                                             </ul>
                                         </li>
+                                        @endguest
                                     </ul>
                                 </nav>
                             </div>

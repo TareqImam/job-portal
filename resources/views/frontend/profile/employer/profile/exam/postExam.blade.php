@@ -4,7 +4,7 @@
 
 <div class="container">
     <h3 class="mb-3">Exam List</h3>
-    <a href="{{route('examForm')}}" class="btn mb-3" role="button">Add Exam</a>
+    <a href="{{route('addExam')}}" class="btn mb-3" role="button">Add Exam</a>
     <table class="table">
         <thead>
             <tr>
@@ -25,9 +25,9 @@
                 <td>{{$data->examType}}</td>
                 <td>{{$data->jobPost->jobPostName}}</td>
                 <td>
-                    <a href="{{route('examSingleView', $data->id)}}" class="btn">View</a>
-                    <a href="{{route('examUpdate', $data->id)}}" class="btn">Edit</a>
-                    <a href="{{route('examDelete', $data->id)}}" class="btn">Delete</a>
+                    <a href="{{route('singleViewE', $data->id)}}" class="btn">View</a>
+                    <a href="{{route('updateExam', $data->id)}}" class="btn">Edit</a>
+                    <a href="{{route('deleteExam', $data->id)}}" class="btn">Delete</a>
                 </td>
             </tr>
             @endforeach

@@ -26,9 +26,9 @@
                     <td>{{$data->category->categoryName}}</td>
                     <td>{{$data->jobPostType}}</td>
                     <td>
-                        <a href="{{route('jobPostSingleView', $data->id)}}" class="btn">View</a>
-                        <a href="{{route('jobPostUpdate', $data->id)}}" class="btn">Edit</a>
-                        <a href="{{route('jobPostDelete', $data->id)}}" class="btn">Delete</i></a>
+                        <a href="{{route('singleView', $data->id)}}" class="btn">View</a>
+                        <a href="{{route('jobUpdate', $data->id)}}" class="btn">Edit</a>
+                        <a href="{{route('jobDelete', $data->id)}}" class="btn">Delete</i></a>
                     </td>
                 </tr>
                 @endforeach
