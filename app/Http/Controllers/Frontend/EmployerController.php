@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Employer;
+use App\Models\Exam;
 use App\Models\User;
+use App\Models\JobPost;
+use App\Models\Category;
+use App\Models\Employer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class EmployerController extends Controller
@@ -38,6 +41,55 @@ class EmployerController extends Controller
             'password' => $request->employerPassword
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('employerPanel');
+    }
+
+    public function employerPanel()
+    {
+        return view('frontend.profile.employer.employer');
+    }
+
+    public function employerJobs()
+    {
+        $jobPost = JobPost::all();
+        return view('frontend.profile.employer.profile.jobs.postJob', compact('jobPost'));
+    }
+
+    public function employerExams()
+    {
+        $exam = Exam::all();
+        return view('frontend.profile.employer.profile.exam.postExam', compact('exam'));
+    }
+
+    public function addJob()
+    {
+        $category = Category::all();
+        $employer = Employer::all();
+        return view('frontend.profile.employer.profile.jobs.addJob', compact('category', 'employer'));
+    }
+
+    public function jobSubmit(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'jobPostName' => 'required',
+            'categoryId' => 'required',
+            'employerId' => 'required',
+            'jobPostType' => 'required',
+            'jobPostVacancy' => 'required',
+            'jobPostPosition' => 'required'
+        ]);
+
+        JobPost::create([
+            'jobPostName' => $request->jobPostName,
+            'categoryId' => $request->categoryId,
+            'employerId' => $request->employerId,
+            'jobPostType' => $request->jobPostType,
+            'jobPostVacancy' => $request->jobPostVacancy,
+            'jobPostPosition' => $request->jobPostPosition,
+            'jobPostLocation' => $request->jobPostLocation,
+            'jobPostDescription' => $request->jobPostDescription
+        ]);
+        return redirect()->route('employerJobs');
     }
 }

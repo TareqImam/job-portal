@@ -201,6 +201,16 @@ Route::get('/loginEmployer', [FrontendEmployer::class, 'loginEmployer'])->name('
 
 Route::post('/employerLogin', [FrontendEmployer::class, 'loginE'])->name('employerLogin');
 
+Route::get('/employerPanel', [FrontendEmployer::class, 'employerPanel'])->name('employerPanel');
+
+Route::get('/employerJobs', [FrontendEmployer::class, 'employerJobs'])->name('employerJobs');
+
+Route::get('/employerExams', [FrontendEmployer::class, 'employerExams'])->name('employerExams');
+
+Route::get('/employer/addJob', [FrontendEmployer::class, 'addJob'])->name('addJob');
+
+Route::post('/employer/jobSubmit', [FrontendEmployer::class, 'jobSubmit'])->name('jobSubmit');
+
 
 
 // -----------------------------Job List routes---------------------------//

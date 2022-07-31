@@ -21,7 +21,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('jobPost')}}">
                 <i class="mdi mdi-message-text-outline"></i>
-                <span class="menu-title">Job posting</span>
+                <span class="menu-title">Jobs</span>
             </a>
         </li>
         <li class="nav-item">
@@ -33,7 +33,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('exam')}}">
                 <i class="mdi mdi-pencil"></i>
-                <span class="menu-title">Exam</span>
+                <span class="menu-title">Exams</span>
             </a>
         </li>
         <!-- <li class="nav-item">
