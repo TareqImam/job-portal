@@ -73,6 +73,7 @@ class EmployerController extends Controller
             'employerId' => 'required',
             'jobPostType' => 'required',
             'jobPostVacancy' => 'required',
+            'jobPostSalary' => 'required',
             'jobPostPosition' => 'required'
         ]);
 
@@ -82,8 +83,9 @@ class EmployerController extends Controller
             'employerId' => $request->employerId,
             'jobPostType' => $request->jobPostType,
             'jobPostVacancy' => $request->jobPostVacancy,
-            'jobPostPosition' => $request->jobPostPosition,
+            'jobPostSalary' => $request->jobPostSalary,
             'jobPostLocation' => $request->jobPostLocation,
+            'jobPostStatus' => $request->jobPostStatus,
             'jobPostDescription' => $request->jobPostDescription
         ]);
         return redirect()->route('employerJobs');

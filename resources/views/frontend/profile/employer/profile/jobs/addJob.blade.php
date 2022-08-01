@@ -40,11 +40,14 @@
         <label for="" class="mt-3">Vacancy</label>
         <input type="text" class="form-control" name="jobPostVacancy" required>
 
-        <label for="" class="mt-3">Position</label>
-        <input type="text" class="form-control" name="jobPostPosition" required>
+        <label for="" class="mt-3">Salray</label>
+        <input type="text" class="form-control" name="jobPostSalary" required>
 
         <label for="" class="mt-3">Location</label>
         <input type="text" class="form-control" name="jobPostLocation" required>
+
+        <label for="" class="mt-3">Status</label>
+        <input type="text" class="form-control" name="jobPostStatus" required>
 
         <label for="" class="mt-3">Description</label>
         <input type="text" class="form-control" name="jobPostDescription" required>

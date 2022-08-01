@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('jobPostName');
             $table->string('jobPostType');
             $table->string('jobPostVacancy');
-            $table->string('jobPostPosition');
+            $table->string('jobPostSalary');
             $table->string('jobPostLocation');
+            $table->string('jobPostStatus')->default('Active');
             $table->integer('categoryId');
             $table->integer('employerId');
-            $table->string('jobPostDescription');
+            $table->text('jobPostDescription');
             $table->timestamps();
         });
     }

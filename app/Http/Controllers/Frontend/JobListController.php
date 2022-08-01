@@ -15,4 +15,11 @@ class JobListController extends Controller
         $jobPost = JobPost::all();
         return view('frontend.pages.jobs.jobListing', compact('category', 'jobPost'));
     }
+
+    public function singleViewJ($id)
+    {
+        $category = Category::all();
+        $jobPost = JobPost::all();
+        return view('frontend.pages.jobs.jobDetails', compact('category', 'jobPost'));
+    }
 }

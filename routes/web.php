@@ -50,7 +50,7 @@ Route::get('/admin', [MasterController::class, 'login'])->name('login');
 
 Route::post('/adminLogin', [MasterController::class, 'adminLogin'])->name('adminLogin');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
     /* ------------------ admin panel pages------------------ */
     Route::get('/dashboard', [DashboardController::class, 'dashboardView'])->name('dashboard');
 
@@ -95,15 +95,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     // -----------------------------Job Posting routes---------------------------//
     Route::get('/jobs', [JobPostController::class, 'jobPostView'])->name('jobPost');
 
-    // Route::get('/job-post/form', [JobPostController::class, 'jobPostForm'])->name('jobPostForm');
+    Route::get('/job-post/form', [JobPostController::class, 'jobPostForm'])->name('jobPostForm');
 
-    // Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->name('jobPostSubmit');
+    Route::post('job-post/submit', [JobPostController::class, 'jobPostSubmit'])->name('jobPostSubmit');
 
-    // Route::get('/job-post/update/{id}', [JobPostController::class, 'jobPostUpdate'])->name('jobPostUpdate');
+    Route::get('/job-post/update/{id}', [JobPostController::class, 'jobPostUpdate'])->name('jobPostUpdate');
 
-    // Route::put('/job-post/update/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
+    Route::put('/job-post/update/store/{id}', [JobPostController::class, 'jobPostStore'])->name('jobPostStore');
 
-    // Route::get('/job-post/delete/{id}', [JobPostController::class, 'jobPostDelete'])->name('jobPostDelete');
+    Route::get('/job-post/delete/{id}', [JobPostController::class, 'jobPostDelete'])->name('jobPostDelete');
 
     Route::get('/job-post/jobPostSingleView/{id}', [JobPostController::class, 'jobPostSingleView'])->name('jobPostSingleView');
 
@@ -192,7 +192,15 @@ Route::get('/changePassword', [ApplicantProfileController::class, 'changePasswor
 
 
 
+
+
+
+
+
+
+
 // -----------------------------Employer routes---------------------------//
+
 Route::get('/selectEmployer', [FrontendEmployer::class, 'selectEmployer'])->name('selectEmployer');
 
 Route::post('/registrationEmployer', [FrontendEmployer::class, 'registration'])->name('registrationEmployer');
@@ -201,44 +209,50 @@ Route::get('/loginEmployer', [FrontendEmployer::class, 'loginEmployer'])->name('
 
 Route::post('/employerLogin', [FrontendEmployer::class, 'loginE'])->name('employerLogin');
 
-Route::get('/employerPanel', [FrontendEmployer::class, 'employerPanel'])->name('employerPanel');
 
-// -----------------------------Employer routes(jobs)---------------------------//
 
-Route::get('/employerJobs', [FrontendEmployer::class, 'employerJobs'])->name('employerJobs');
+Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'employer'], function () {
 
-Route::get('/employer/job/add', [FrontendEmployer::class, 'addJob'])->name('addJob');
+    Route::get('/employerPanel', [FrontendEmployer::class, 'employerPanel'])->name('employerPanel');
 
-Route::post('/employer/job/submit', [FrontendEmployer::class, 'jobSubmit'])->name('jobSubmit');
+    // -----------------------------Employer routes(jobs)---------------------------//
 
-Route::get('/employer/job/update/{id}', [FrontendEmployer::class, 'jobUpdate'])->name('jobUpdate');
+    Route::get('/employerJobs', [FrontendEmployer::class, 'employerJobs'])->name('employerJobs');
 
-Route::put('/employer/job/store/{id}', [FrontendEmployer::class, 'updateStore'])->name('updateStore');
+    Route::get('/employer/job/add', [FrontendEmployer::class, 'addJob'])->name('addJob');
 
-Route::get('/employer/job/delete/{id}', [FrontendEmployer::class, 'jobDelete'])->name('jobDelete');
+    Route::post('/employer/job/submit', [FrontendEmployer::class, 'jobSubmit'])->name('jobSubmit');
 
-Route::get('/employer/job/view/{id}', [FrontendEmployer::class, 'singleView'])->name('singleView');
+    Route::get('/employer/job/update/{id}', [FrontendEmployer::class, 'jobUpdate'])->name('jobUpdate');
 
-// -----------------------------Employer routes(exams)---------------------------//
+    Route::put('/employer/job/store/{id}', [FrontendEmployer::class, 'updateStore'])->name('updateStore');
 
-Route::get('/employerExams', [FrontendEmployer::class, 'employerExams'])->name('employerExams');
+    Route::get('/employer/job/delete/{id}', [FrontendEmployer::class, 'jobDelete'])->name('jobDelete');
 
-Route::get('/employer/exam/add', [FrontendEmployer::class, 'addExam'])->name('addExam');
+    Route::get('/employer/job/view/{id}', [FrontendEmployer::class, 'singleView'])->name('singleView');
 
-Route::post('/employer/exam/submit', [FrontendEmployer::class, 'submitExam'])->name('submitExam');
+    // -----------------------------Employer routes(exams)---------------------------//
 
-Route::get('/employer/exam/update/{id}', [FrontendEmployer::class, 'updateExam'])->name('updateExam');
+    Route::get('/employerExams', [FrontendEmployer::class, 'employerExams'])->name('employerExams');
 
-Route::put('/employer/exam/store/{id}', [FrontendEmployer::class, 'storeExam'])->name('storeExam');
+    Route::get('/employer/exam/add', [FrontendEmployer::class, 'addExam'])->name('addExam');
 
-Route::get('/employer/exam/delete/{id}', [FrontendEmployer::class, 'deleteExam'])->name('deleteExam');
+    Route::post('/employer/exam/submit', [FrontendEmployer::class, 'submitExam'])->name('submitExam');
 
-Route::get('/employer/exam/view/{id}', [FrontendEmployer::class, 'singleViewE'])->name('singleViewE');
+    Route::get('/employer/exam/update/{id}', [FrontendEmployer::class, 'updateExam'])->name('updateExam');
 
+    Route::put('/employer/exam/store/{id}', [FrontendEmployer::class, 'storeExam'])->name('storeExam');
+
+    Route::get('/employer/exam/delete/{id}', [FrontendEmployer::class, 'deleteExam'])->name('deleteExam');
+
+    Route::get('/employer/exam/view/{id}', [FrontendEmployer::class, 'singleViewE'])->name('singleViewE');
+});
 
 
 // -----------------------------Job List routes---------------------------//
-Route::get('/jobList', [JobListController::class, 'jobListView'])->name('jobList');
+Route::get('/job/list', [JobListController::class, 'jobListView'])->name('jobList');
+
+Route::get('/job/view/{id}', [JobListController::class, 'singleViewJ'])->name('singleViewJ');
 
 
 
