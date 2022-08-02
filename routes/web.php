@@ -152,6 +152,11 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
 
 
 
+
+
+
+
+
 /* ------------------------------------------------ */
 /* ------------------ Front Panel------------------ */
 /* ------------------------------------------------ */
@@ -187,8 +192,6 @@ Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myEx
 Route::get('/update', [ApplicantProfileController::class, 'update'])->name('update');
 
 Route::get('/changePassword', [ApplicantProfileController::class, 'changePassword'])->name('changePassword');
-
-
 
 
 
@@ -247,6 +250,12 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
 
     Route::get('/employer/exam/view/{id}', [FrontendEmployer::class, 'singleViewE'])->name('singleViewE');
 });
+
+
+
+
+
+
 
 
 // -----------------------------Job List routes---------------------------//

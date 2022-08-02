@@ -45,7 +45,7 @@
                                 @if(auth()->user()->role=='employer')
                                 <a href="{{route('employerPanel')}}" class="btn">Dashboard|{{auth()->user()->name}}</a>
                                 @endif
-
+                                
                                 <a href="{{route('logout')}}" class="btn">Logout|{{auth()->user()->name}}</a>
                                 @endauth
 

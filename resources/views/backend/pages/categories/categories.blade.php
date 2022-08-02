@@ -8,7 +8,6 @@
         <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Description</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -17,7 +16,6 @@
         <tr>
             <td>{{$key+1}}</td>
             <td>{{$data->categoryName}}</td>
-            <td>{{$data->categoryDescription}}</td>
             <td>
                 <a href="{{route('categorySingleView', $data->id)}}" class="btn btn-success">View</a>
                 <a href="{{route('categoryUpdate', $data->id)}}" class="btn btn-primary">Edit</a>

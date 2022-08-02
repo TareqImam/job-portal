@@ -20,7 +20,7 @@
     <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryName" required>
 
     <label for="" class="mt-3">Description</label>
-    <input type="text" class="form-control" value="{{$category->categoryName}}" name="categoryDescription" required>
+    <input type="text" class="form-control" value="{{$category->categoryDescription}}" name="categoryDescription" required>
 
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
