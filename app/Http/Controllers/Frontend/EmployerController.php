@@ -50,6 +50,9 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.employer');
     }
 
+
+
+
     // ------------------------------Job methods-------------------------- //
 
     public function employerJobs()
@@ -122,6 +125,9 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.profile.jobs.singleView', compact('jobPost'));
     }
 
+
+
+    
     // ------------------------------Exam methods------------------------------- //
 
     public function employerExams()

@@ -170,6 +170,11 @@ Route::get('/selectRegAs', [FrontendApplicant::class, 'selectRegAs'])->name('sel
 
 Route::get('/selectLoginAs', [FrontendApplicant::class, 'selectLoginAs'])->name('selectLoginAs');
 
+Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
+
+
+
+// -----------------------------Applicant Profile routes---------------------------//
 Route::get('/selectApplicant', [FrontendApplicant::class, 'selectApplicant'])->name('selectApplicant');
 
 Route::post('/registrationApplicant', [FrontendApplicant::class, 'registration'])->name('registrationApplicant');
@@ -178,20 +183,21 @@ Route::get('/loginApplicant', [FrontendApplicant::class, 'loginApplicant'])->nam
 
 Route::post('/user-login', [FrontendApplicant::class, 'loginA'])->name('applicantLogin');
 
-Route::get('/logout', [FrontendApplicant::class, 'logout'])->name('logout');
 
 
+Route::group(['middleware' => ['authApplicant', 'checkApplicant'], 'prefix' => 'applicant'], function () {
 
-// -----------------------------Applicant Profile routes---------------------------//
-Route::get('/applicantPanel', [ApplicantProfileController::class, 'applicantPanel'])->name('applicantPanel');
+    Route::get('/applicantPanel', [ApplicantProfileController::class, 'applicantPanel'])->name('applicantPanel');
 
-Route::get('/myJobs', [ApplicantProfileController::class, 'myJobs'])->name('myJobs');
+    Route::get('/myJobs', [ApplicantProfileController::class, 'myJobs'])->name('myJobs');
 
-Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
+    Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
 
-Route::get('/update', [ApplicantProfileController::class, 'update'])->name('update');
+    Route::get('/update', [ApplicantProfileController::class, 'update'])->name('update');
 
-Route::get('/changePassword', [ApplicantProfileController::class, 'changePassword'])->name('changePassword');
+    Route::get('/changePassword', [ApplicantProfileController::class, 'changePassword'])->name('changePassword');
+});
+
 
 
 

@@ -170,7 +170,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle white-text text-center">
-                        <span>Apply process</span>
+                        <span style="color: #fff;">Apply process</span>
                         <h2> How it works</h2>
                     </div>
                 </div>
