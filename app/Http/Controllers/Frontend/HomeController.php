@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $category = Category::all();
+        $category = Category::with('jobs')->get();
         $jobPost = JobPost::all();
         return view('frontend.fixed.main', compact('category', 'jobPost'));
     }

@@ -23,14 +23,6 @@
         <label for="" class="mt-3">Job name</label>
         <input type="text" class="form-control" value="{{$jobPost->jobPostName}}" name="jobPostName" required>
 
-        <label for="" class="mt-3">Employer</label>
-        <select class="form-select" name="employerId" id="" required>
-            <option value="{{$jobPost->employer->id}}">{{$jobPost->employer->employerName}}</option>
-            @foreach ($employer as $data)
-            <option value="{{$data->id}}">{{$data->employerName}}</option>
-            @endforeach
-        </select><br>
-
         <label for="" class="mt-3">Category</label>
         <select class="form-select" name="categoryId" id="" required>
             <option value="{{$jobPost->category->id}}">{{$jobPost->category->categoryName}}</option>
@@ -44,9 +36,6 @@
 
         <label for="" class="mt-3">Vacancy</label>
         <input type="text" class="form-control" value="{{$jobPost->jobPostVacancy}}" name="jobPostVacancy" required>
-
-        <label for="" class="mt-3">Position</label>
-        <input type="text" class="form-control" value="{{$jobPost->jobPostPosition}}" name="jobPostPosition" required>
 
         <label for="" class="mt-3">Location</label>
         <input type="text" class="form-control" value="{{$jobPost->jobPostLocation}}" name="jobPostLocation" required>

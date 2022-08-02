@@ -23,7 +23,7 @@ class ApplicantController extends Controller
 
     public function registration(Request $request)
     {
-        User::create([
+        $applicant = User::create([
             'name' => $request->applicantName,
             'email' => $request->applicantEmail,
             'password' => bcrypt($request->applicantPassword)
@@ -58,5 +58,4 @@ class ApplicantController extends Controller
 
         return redirect()->route('home');
     }
-
 }

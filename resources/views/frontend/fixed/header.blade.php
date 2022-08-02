@@ -17,11 +17,14 @@
                                 <nav class="d-none d-lg-block">
                                     <ul id="navigation">
                                         <li><a href="{{route('home')}}">Home</a></li>
+
+                                        @guest()
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
                                         <li><a href="#">Find an Employer</a></li>
+                                        @endguest
+
                                         <li><a href="{{route('categoryList')}}">Categories</a>
                                         </li>
-                                        @guest()
                                         <li><a href="contact.html">About</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">About Us</a></li>
@@ -30,7 +33,6 @@
                                                 <li><a href="job_details.html">Job News</a></li>
                                             </ul>
                                         </li>
-                                        @endguest
                                     </ul>
                                 </nav>
                             </div>
@@ -45,7 +47,7 @@
                                 @if(auth()->user()->role=='employer')
                                 <a href="{{route('employerPanel')}}" class="btn">Dashboard|{{auth()->user()->name}}</a>
                                 @endif
-                                
+
                                 <a href="{{route('logout')}}" class="btn">Logout|{{auth()->user()->name}}</a>
                                 @endauth
 

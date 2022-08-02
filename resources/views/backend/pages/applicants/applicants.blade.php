@@ -16,8 +16,8 @@
         @foreach($applicant as $key=>$data)
         <tr>
             <td>{{$key+1}}</td>
-            <td>{{$data->applicantName}}</td>
-            <td>{{$data->applicantEmail}}</td>
+            <td>{{$data->name}}</td>
+            <td>{{$data->email}}</td>
             <td>
                 <a href="{{route('applicantSingleView', $data->id)}}" class="btn btn-success">View</a>
                 <!-- <a href="{{route('applicantUpdate', $data->id)}}" class="btn btn-primary">Edit</a>

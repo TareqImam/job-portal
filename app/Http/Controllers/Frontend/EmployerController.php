@@ -23,7 +23,8 @@ class EmployerController extends Controller
         User::create([
             'name' => $request->employerName,
             'email' => $request->employerEmail,
-            'password' => bcrypt($request->employerPassword)
+            'password' => bcrypt($request->employerPassword),
+            'role' => $request->role
         ]);
 
         return redirect()->route('home');
@@ -70,22 +71,18 @@ class EmployerController extends Controller
         $request->validate([
             'jobPostName' => 'required',
             'categoryId' => 'required',
-            'employerId' => 'required',
             'jobPostType' => 'required',
             'jobPostVacancy' => 'required',
             'jobPostSalary' => 'required',
-            'jobPostPosition' => 'required'
         ]);
 
         JobPost::with('category')->with('employer')->create([
             'jobPostName' => $request->jobPostName,
             'categoryId' => $request->categoryId,
-            'employerId' => $request->employerId,
             'jobPostType' => $request->jobPostType,
             'jobPostVacancy' => $request->jobPostVacancy,
             'jobPostSalary' => $request->jobPostSalary,
             'jobPostLocation' => $request->jobPostLocation,
-            'jobPostStatus' => $request->jobPostStatus,
             'jobPostDescription' => $request->jobPostDescription
         ]);
         return redirect()->route('employerJobs');
@@ -105,10 +102,8 @@ class EmployerController extends Controller
         $jobPost->update([
             'jobPostName' => $request->jobPostName,
             'categoryId' => $request->categoryId,
-            'employerId' => $request->employerId,
             'jobPostType' => $request->jobPostType,
             'jobPostVacancy' => $request->jobPostVacancy,
-            'jobPostPosition' => $request->jobPostPosition,
             'jobPostLocation' => $request->jobPostLocation,
             'jobPostDescription' => $request->jobPostDescription
         ]);

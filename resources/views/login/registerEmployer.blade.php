@@ -22,6 +22,7 @@
                         <div class="form-group d-flex">
                             <input type="password" class="form-control rounded-left" placeholder="Password" name="employerPassword" required />
                         </div>
+                        <input type="text" name="role" value="employer" hidden>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary rounded submit p-3 px-5">
                                 Submit

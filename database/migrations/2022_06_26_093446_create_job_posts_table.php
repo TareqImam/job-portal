@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('jobPostLocation');
             $table->string('jobPostStatus')->default('Active');
             $table->integer('categoryId');
-            $table->integer('employerId');
             $table->text('jobPostDescription');
             $table->timestamps();
         });

@@ -266,4 +266,6 @@ Route::get('/job/view/{id}', [JobListController::class, 'singleViewJ'])->name('s
 
 
 // -----------------------------Catogories routes---------------------------//
-Route::get('/categoryList', [CategoryListController::class, 'categoryList'])->name('categoryList');
+Route::get('/category/list', [CategoryListController::class, 'categoryList'])->name('categoryList');
+
+Route::get('/category/list/single/{id}', [CategoryListController::class, 'singleCategory'])->name('singleCategory');

@@ -11,8 +11,9 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Employer</th>
                     <th>Category</th>
+                    <th>Salary</th>
+                    <th>Vacancy</th>
                     <th>Type</th>
                     <th>Action</th>
                 </tr>
@@ -22,8 +23,9 @@
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$data->jobPostName}}</td>
-                    <td>{{$data->employer->employerName}}</td>
                     <td>{{$data->category->categoryName}}</td>
+                    <td>{{$data->jobPostSalary}}</td>
+                    <td>{{$data->jobPostVacancy}}</td>
                     <td>{{$data->jobPostType}}</td>
                     <td>
                         <a href="{{route('singleView', $data->id)}}" class="btn">View</a>

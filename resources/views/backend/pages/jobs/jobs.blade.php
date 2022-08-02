@@ -7,7 +7,6 @@
         <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Employer</th>
             <th>Category</th>
             <th>Type</th>
             <th>Action</th>
@@ -18,7 +17,6 @@
         <tr>
             <td>{{$key+1}}</td>
             <td>{{$data->jobPostName}}</td>
-            <td>{{$data->employer->employerName}}</td>
             <td>{{$data->category->categoryName}}</td>
             <td>{{$data->jobPostType}}</td>
             <td>
