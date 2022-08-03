@@ -18,10 +18,10 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="{{route('selectLoginAs')}}"><img src="{{url('frontend/assets/img/icon/job-list1.png')}}" alt=""></a>
+                                <a href="{{route('singleViewJ', $data->id)}}"><img src="{{url('frontend/assets/img/icon/job-list1.png')}}" alt=""></a>
                             </div>
                             <div class="job-tittle">
-                                <a href="{{route('selectLoginAs')}}">
+                                <a href="{{route('singleViewJ', $data->id)}}">
                                     <h4>{{$data->jobPostName}}</h4>
                                 </a>
                                 <ul>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="items-link f-right">
-                            <a href="{{route('selectLoginAs')}}">Apply</a>
+                            <a href="{{route('singleViewJ', $data->id)}}">Apply</a>
                             <span>7 hours ago</span>
                         </div>
                     </div>
