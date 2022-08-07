@@ -26,8 +26,8 @@
                                 </a>
                                 <ul>
                                     <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{ $data->jobPostLocation }}</li>
+                                    <li>৳{{ $data->jobPostSalary }}</li>
                                 </ul>
                             </div>
                         </div>

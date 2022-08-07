@@ -19,6 +19,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            // ---------------employer details--------------- //
+            $table->string('employerImage')->nullable();
+            $table->string('companyName')->nullable();
+            $table->string('companyWeb')->nullable();
+            $table->string('companyEmail')->nullable();
+            $table->string('companyDescription')->nullable();
+            $table->string('companyImage')->nullable();
+
+            // ---------------applicant details--------------- //
+            $table->string('applicantImage')->nullable();
+
             $table->string('role')->default('applicant');
             $table->rememberToken();
             $table->timestamps();

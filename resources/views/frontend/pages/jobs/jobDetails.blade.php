@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row justify-content-between">
                 <!-- Left Content -->
-                <div class="col-xl-7 col-lg-8">
+                <div class="col-xl-8 col-lg-8">
                     <!-- job single -->
                     <div class="single-job-items mb-50">
                         <div class="job-items">

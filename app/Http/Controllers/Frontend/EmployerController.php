@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 
 class EmployerController extends Controller
@@ -47,13 +48,37 @@ class EmployerController extends Controller
 
     public function employerPanel()
     {
-        return view('frontend.profile.employer.employer');
+        $user = User::all();
+        return view('frontend.profile.employer.profile.dashboard.dashboard', compact('user'));
+    }
+
+    public function editEmployer($id)
+    {
+        $user = User::find($id);
+        return view('frontend.profile.employer.profile.dashboard.editEmployer', compact('user'));
+    }
+
+    public function storeEmployer(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'companyName' => $request->companyName,
+            'companyWeb' => $request->companyWeb,
+            'companyEmail' => $request->companyEmail,
+            'companyDescription' => $request->companyDescription,
+            'password' => bcrypt($request->employerPassword),
+        ]);
+
+        return redirect()->route('employerPanel');
     }
 
 
 
 
-    // ------------------------------Job methods-------------------------- //
+
+    // ------------------------------Job methods start-------------------------- //
 
     public function employerJobs()
     {
@@ -125,10 +150,13 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.profile.jobs.singleView', compact('jobPost'));
     }
 
+    // ------------------------------Job methods start-------------------------- //
 
 
-    
-    // ------------------------------Exam methods------------------------------- //
+
+
+
+    // ------------------------------Exam methods start------------------------------- //
 
     public function employerExams()
     {
@@ -197,4 +225,7 @@ class EmployerController extends Controller
         $exam = Exam::with('jobPost')->find($id);
         return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
     }
+
+    // ------------------------------Exam methods end------------------------------- //
+
 }
