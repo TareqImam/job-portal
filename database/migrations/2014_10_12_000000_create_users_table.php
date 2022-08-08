@@ -26,10 +26,11 @@ return new class extends Migration
             $table->string('companyWeb')->nullable();
             $table->string('companyEmail')->nullable();
             $table->string('companyDescription')->nullable();
-            $table->string('companyImage')->nullable();
+            $table->text('companyImage')->nullable();
 
             // ---------------applicant details--------------- //
             $table->string('applicantImage')->nullable();
+            $table->string('applicantCV')->nullable();
 
             $table->string('role')->default('applicant');
             $table->rememberToken();

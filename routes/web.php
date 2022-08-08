@@ -264,8 +264,8 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
     Route::get('/exam/view/{id}', [FrontendEmployer::class, 'singleViewE'])->name('singleViewE');
 
 
-    // -----------------------------Employer routes(exams)---------------------------//
-
+    // -----------------------------Employer routes(question)---------------------------//
+    Route::get('/exam/questions', [FrontendEmployer::class, 'examQuestion'])->name('examQuestion');
 });
 
 
@@ -278,7 +278,7 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
 // -----------------------------Job List routes---------------------------//
 Route::get('/job/list', [JobListController::class, 'jobListView'])->name('jobList');
 
-Route::get('/job/view/{id}', [JobListController::class, 'singleViewJ'])->name('singleViewJ');
+Route::get('/job/view/details/{id}', [JobListController::class, 'singleViewJ'])->name('singleViewJ');
 
 
 

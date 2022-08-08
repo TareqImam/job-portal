@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('examSet');
             $table->string('examType');
             $table->integer('jobPostId');
+            $table->string('questionName')->nullable();
+            $table->string('questionFile')->nullable();
             $table->timestamps();
         });
     }

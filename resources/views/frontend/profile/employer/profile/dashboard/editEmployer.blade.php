@@ -13,7 +13,7 @@
 @endif
 
 <div class="container mb-3">
-    <form action="{{route('storeEmployer', $user->id)}}" method="POST">
+    <form action="{{route('storeEmployer', $user->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
@@ -23,8 +23,16 @@
         <label for="" class="mt-3">Email</label>
         <input type="email" class="form-control" value="{{ $user->email }}" name="email" required>
 
+        <label for="" class="mt-3">Image</label>
+        <input type="file" class="form-control" value="{{ $user->employerImage }}" name="image" >
+
+
+
         <label for="" class="mt-3">Company Name</label>
         <input type="text" class="form-control" value="{{ $user->companyName }}" name="companyName" required>
+
+        <label for="" class="mt-3">Company Image</label>
+        <input type="file" class="form-control" value="{{ $user->companyImage }}" name="companyImage" >
 
         <label for="" class="mt-3">Company Web</label>
         <input type="text" class="form-control" value="{{ $user->companyWeb }}" name="companyWeb" required>

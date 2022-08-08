@@ -26,7 +26,7 @@
                     <div class="post-details3  mb-50">
                         <!-- Small Section Tittle -->
                         <div class="small-section-tittle">
-                            <h4>Employer Info</h4><img class="mb-2" src="" alt="img">
+                            <h4>Employer Info</h4><img class="mb-2" style="width: 100px;" src="{{ url('/images/employer')."/".auth()->user()->employerImage }}" alt="img">
                         </div>
                         <ul>
                             <li>Employer Name : {{auth()->user()->name}}</li>
@@ -34,7 +34,7 @@
                         </ul>
 
                         <div class="small-section-tittle">
-                            <h4>Company Info</h4><img class="mb-2" src="" alt="img">
+                            <h4>Company Info</h4><img class="mb-2 company-img" style="width: 100px;" src="{{ url('/images/company')."/".auth()->user()->companyImage }}" alt="img">
                         </div>
                         <ul>
                             <li>Company Name : {{auth()->user()->companyName}}</li>

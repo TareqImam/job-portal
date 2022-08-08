@@ -29,7 +29,7 @@
                     <div class="single-job-items mb-50">
                         <div class="job-items">
                             <div class="company-img company-img-details">
-                                <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                                <a href=""><img class="mb-2" style="width: 100px;" src="{{ url('/images/company')."/".auth()->user()->companyImage }}" alt="img"></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#">
@@ -106,13 +106,12 @@
                         <div class="small-section-tittle">
                             <h4>Company Information</h4>
                         </div>
-                        <span>Colorlib</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            content of a page when looking at its layout.</p>
+                        <span>{{ auth()->user()->companyName }}</span>
+                        <p>{{ auth()->user()->companyDescription }}</p>
                         <ul>
-                            <li>Name: <span>Colorlib </span></li>
-                            <li>Web : <span> colorlib.com</span></li>
-                            <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                            <li>Name: <span>{{ auth()->user()->companyName }}</span></li>
+                            <li>Web : <span>{{ auth()->user()->companyWeb }}</span></li>
+                            <li>Email: <span>{{ auth()->user()->companyEmail }}</span></li>
                         </ul>
                     </div>
                 </div>

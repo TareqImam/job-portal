@@ -60,19 +60,45 @@ class EmployerController extends Controller
 
     public function storeEmployer(Request $request, $id)
     {
+        if ($request->hasFile('image')) {
+            $employerImage = $request->file('image');
+            $renameEmployerImage = "employer_" . rand(0, 100000) . date('Ymdhis') . "." . $employerImage->getClientOriginalExtension();
+            $employerImage->storeAs('employer', $renameEmployerImage);
+        }
+
+        if ($request->hasFile('companyImage')) {
+            $companyImage = $request->file('companyImage');
+            $renameCompanyImage = "company_" . rand(0, 100000) . date('Ymdhis') . "." . $companyImage->getClientOriginalExtension();
+            $companyImage->storeAs('company', $renameCompanyImage);
+        }
+
+
         $user = User::find($id);
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'employerImage' => $renameEmployerImage,
             'companyName' => $request->companyName,
+            'companyImage' => $renameCompanyImage,
             'companyWeb' => $request->companyWeb,
             'companyEmail' => $request->companyEmail,
             'companyDescription' => $request->companyDescription,
-            'password' => bcrypt($request->employerPassword),
         ]);
 
         return redirect()->route('employerPanel');
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -156,6 +182,11 @@ class EmployerController extends Controller
 
 
 
+
+
+
+
+
     // ------------------------------Exam methods start------------------------------- //
 
     public function employerExams()
@@ -228,4 +259,20 @@ class EmployerController extends Controller
 
     // ------------------------------Exam methods end------------------------------- //
 
+
+
+
+
+
+
+
+
+    // ------------------------------Question methods start------------------------------- //
+
+    public function examQuestion()
+    {
+        return view('frontend.profile.employer.profile.question.question');
+    }
+
+    // ------------------------------Question methods start------------------------------- //
 }
