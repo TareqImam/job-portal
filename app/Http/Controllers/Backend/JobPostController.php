@@ -12,7 +12,7 @@ class JobPostController extends Controller
 {
     public function jobPostView()
     {
-        $jobPost = JobPost::with('employer')->OrderBy('id', 'desc')->with('category')->paginate(5);
+        $jobPost = JobPost::with('employer')->with('category')->OrderBy('id', 'desc')->paginate(5);
         // dd($jobPost);
         return view('backend.pages.jobs.jobs', compact('jobPost'));
     }
@@ -57,7 +57,7 @@ class JobPostController extends Controller
         return view('backend.pages.jobs.jobUpdate', compact('jobPost', 'category', 'employer'));
     }
 
-    
+
 
     public function jobPostStore(Request $request, $id)
     {

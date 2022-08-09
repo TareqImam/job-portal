@@ -108,7 +108,7 @@ class EmployerController extends Controller
 
     public function employerJobs()
     {
-        $jobPost = JobPost::all();
+        $jobPost = JobPost::where('user_id', auth()->user()->id)->get();
         return view('frontend.profile.employer.profile.jobs.job', compact('jobPost'));
     }
 
@@ -133,6 +133,7 @@ class EmployerController extends Controller
         JobPost::with('category')->with('employer')->create([
             'jobPostName' => $request->jobPostName,
             'categoryId' => $request->categoryId,
+            'user_id' => auth()->user()->id,
             'jobPostType' => $request->jobPostType,
             'jobPostVacancy' => $request->jobPostVacancy,
             'jobPostSalary' => $request->jobPostSalary,
@@ -182,6 +183,10 @@ class EmployerController extends Controller
 
 
 
+
+
+
+    
 
 
 
