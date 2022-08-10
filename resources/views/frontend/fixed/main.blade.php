@@ -20,24 +20,28 @@
                     <div class="row">
                         <div class="col-xl-8">
                             <!-- form -->
-                            <form action="#" class="search-box">
+                            <form action="{{ route('search') }}" class="search-box" method="get">
+                                @csrf
+
                                 <div class="input-form">
-                                    <input type="text" placeholder="Job Tittle or keyword">
+                                    <input type="text" name="search" placeholder="Job Tittle or keyword">
                                 </div>
-                                <div class="select-form">
+                                {{--  <div class="select-form">
                                     <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">Location BD</option>
-                                            <option value="">Location PK</option>
-                                            <option value="">Location US</option>
-                                            <option value="">Location UK</option>
+
+                                        <select name="search" id="select1">
+                                            @foreach ($jobPost as $data)
+                                            <option value="">{{ $data->jobPostLocation }}</option>
+                                            @endforeach
                                         </select>
+
                                     </div>
-                                </div>
+                                </div>  --}}
                                 <div class="search-form">
-                                    <a class="btn" href="#">Find job</a>
+                                    <button class="btn" style="padding: 35px 50px;" type="submit">Find job</button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

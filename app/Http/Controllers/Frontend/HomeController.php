@@ -15,6 +15,20 @@ class HomeController extends Controller
         $user = User::all();
         $category = Category::with('jobs')->get();
         $jobPost = JobPost::all();
-        return view('frontend.fixed.main', compact('category', 'jobPost','user'));
+        return view('frontend.fixed.main', compact('category', 'jobPost', 'user'));
+    }
+
+    public function search(Request $request)
+    {
+        $key = null;
+        if (request()->search) {
+            $key = request()->search;
+            $jobPost = JobPost::where('jobPostName', 'LIKE', '%' . $key . '%')
+                ->orWhere('jobPostLocation', 'LIKE', '%' . $key . '%')
+                ->get();
+            return view('frontend.pages.jobs.jobSearch', compact('jobPost', 'key'));
+        }
+        $jobPost = JobPost::all();
+        return view('frontend.pages.jobs.jobSearch', compact('jobPost'));
     }
 }

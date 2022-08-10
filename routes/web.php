@@ -163,6 +163,8 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
+Route::get('/home/search/job', [HomeController::class, 'search'])->name('search');
+
 
 
 // -----------------------------Applicants routes---------------------------//
