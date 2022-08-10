@@ -3,15 +3,41 @@
 @section('frontend_content')
 
 <div class="container mb-3">
-    <h3 class="my-3">Employer's Profile</h3>
-    <a href="{{ route('employerPanel') }}" class="btn d-inline-flex mb-3 justify-content">Dashboard</a>
-    <a href="{{route('employerJobs')}}" class="btn d-inline-flex mb-3 justify-content">Post a Job</a>
-    <a href="{{route('employerExams')}}" class="btn d-inline-flex mb-3 justify-content">Post an Exam</a>
-    <a href="{{route('examQuestion')}}" class="btn d-inline-flex mb-3 justify-content">Add Question</a>
-    <a href="" class="btn d-inline-flex mb-3 justify-content">Applicant's CVs</a>
+
+    <body>
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar-->
+            <div class="col-md-2 border-end bg-white" id="sidebar-wrapper">
+                <div class="list-group list-group-flush">
+                    <div class="small-section-tittle">
+                        <img class="mb-2" style="width: 90px;" src="{{ url('/images/employer')."/".auth()->user()->employerImage }}" alt="img">
+                    </div>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="{{ route('employerPanel') }}">Dashboard</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="{{route('employerJobs')}}">Manage Jobs</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="{{route('employerExams')}}">Manage Exams</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="#!">Shortlisted CVs</a>
+                </div>
+            </div>
+
+            <!-- Page content wrapper-->
+            <div id="col-md-10 page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    @yield('employer_content')
+                </div>
+            </div>
+
+        </div>
+    </body>
 </div>
-
-@yield('employer_content')
-
 
 @endsection

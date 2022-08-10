@@ -12,9 +12,6 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Category</th>
-                    <th>Salary</th>
-                    <th>Vacancy</th>
-                    <th>Type</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -24,9 +21,6 @@
                     <td>{{$key+1}}</td>
                     <td>{{$data->jobPostName}}</td>
                     <td>{{$data->category->categoryName}}</td>
-                    <td>{{$data->jobPostSalary}}</td>
-                    <td>{{$data->jobPostVacancy}}</td>
-                    <td>{{$data->jobPostType}}</td>
                     <td>
                         <a href="{{route('singleView', $data->id)}}" class="btn">View</a>
                         <a href="{{route('jobUpdate', $data->id)}}" class="btn">Edit</a>

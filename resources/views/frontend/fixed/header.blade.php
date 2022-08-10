@@ -18,13 +18,20 @@
                                     <ul id="navigation">
                                         <li><a href="{{route('home')}}">Home</a></li>
 
+                                        @auth
+                                        @if(auth()->user()->role=='applicant')
+                                        <li><a href="{{route('jobList')}}">Find a Job</a></li>
+                                        <li><a href="#">Find an Employer</a></li>
+                                        <li><a href="{{route('categoryList')}}">Categories</a>
+                                        </li>
+                                        @endif
+                                        @endauth()
+
                                         @guest()
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
                                         <li><a href="#">Find an Employer</a></li>
                                         @endguest
 
-                                        <li><a href="{{route('categoryList')}}">Categories</a>
-                                        </li>
                                         <li><a href="contact.html">About</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">About Us</a></li>
@@ -33,6 +40,7 @@
                                                 <li><a href="job_details.html">Job News</a></li>
                                             </ul>
                                         </li>
+
                                     </ul>
                                 </nav>
                             </div>

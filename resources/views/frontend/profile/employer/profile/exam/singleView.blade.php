@@ -3,18 +3,28 @@
 @section('employer_content')
 
 <div class="container mb-3">
-    <h3>Exam Details</h3>
-    <label for="" class="mt-3">Name</label>
-    <input type="text" class="form-control" readonly value="{{$exam->examName}}">
+<h3>Exam Details</h3>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5><strong>Name: </strong>{{$exam->examName}}</h5>
 
-    <label for="" class="mt-3">Set</label>
-    <input type="text" class="form-control" readonly value="{{$exam->examSet}}">
+                <h5><strong>Set: </strong>{{$exam->examSet}}</h5>
 
-    <label for="" class="mt-3">Type</label>
-    <input type="text" class="form-control" readonly value="{{$exam->examType}}">
+                <h5><strong>Type: </strong>{{$exam->examType}}</h5>
 
-    <label for="" class="mt-3">Job Post</label>
-    <input type="text" class="form-control" readonly value="{{$exam->jobPost->jobPostName}}">
+                <h5><strong>Job Post: </strong>{{$exam->jobPost->jobPostName}}</h5>
+
+                <h5><strong>Job Question: </strong></h5>
+                <a href="{{ url('/images/question/') }}" download="{{$exam->questionFile}}" class="btn">Download</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+</div>
+
+
 
 @endsection

@@ -42,27 +42,25 @@
                                             <div class="col-xl-8">
                                                 <!-- form -->
                                                 <form action="{{ route('search') }}" class="search-box" method="get">
-                                                    @csrf
 
                                                     <div class="input-form">
                                                         <input type="text" name="search"
-                                                            placeholder="Job Tittle or keyword">
+                                                            placeholder="Job Tittle">
                                                     </div>
-                                                    {{--  <div class="select-form">
+                                                    <div class="select-form">
                                                         <div class="select-itms">
 
-                                                            <select name="search" id="select1">
+                                                            <select name="" id="select1">
                                                                 @foreach ($jobPost as $data)
                                                                 <option value="">{{ $data->jobPostLocation }}</option>
                                                                 @endforeach
                                                             </select>
 
                                                         </div>
-                                                    </div>  --}}
+                                                    </div>
                                                     <div class="search-form">
                                                         <button class="btn" style="padding: 35px 50px;"
-                                                            type="submit">Find
-                                                            job</button>
+                                                            type="submit">Find job</button>
                                                     </div>
                                                 </form>
 

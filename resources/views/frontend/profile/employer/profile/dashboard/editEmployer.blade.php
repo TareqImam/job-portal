@@ -24,7 +24,7 @@
         <input type="email" class="form-control" value="{{ $user->email }}" name="email" required>
 
         <label for="" class="mt-3">Image</label>
-        <input type="file" class="form-control" value="{{ $user->employerImage }}" name="image" >
+        <input type="file" class="form-control" value="{{ $user->employerImage }}" name="image" required>
 
 
 
@@ -32,7 +32,7 @@
         <input type="text" class="form-control" value="{{ $user->companyName }}" name="companyName" required>
 
         <label for="" class="mt-3">Company Image</label>
-        <input type="file" class="form-control" value="{{ $user->companyImage }}" name="companyImage" >
+        <input type="file" class="form-control" value="{{ $user->companyImage }}" name="companyImage" required>
 
         <label for="" class="mt-3">Company Web</label>
         <input type="text" class="form-control" value="{{ $user->companyWeb }}" name="companyWeb" required>

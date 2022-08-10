@@ -3,15 +3,41 @@
 @section('frontend_content')
 
 <div class="container mb-3">
-    <h3 class="my-3">Applicant's Profile</h3>
-    <a href="{{route('applicantPanel')}}" class="btn d-inline-flex justify-content">My Profile</a>
-    <a href="{{route('myJobs')}}" class="btn d-inline-flex justify-content">My Jobs</a>
-    <a href="" class="btn d-inline-flex justify-content">My Exams</a>
-    <a href="" class="btn d-inline-flex justify-content">Update Profile</a>
-    <a href="" class="btn d-inline-flex justify-content">Change Password</a>
+
+    <body>
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar-->
+            <div class="col-md-2 border-end bg-white" id="sidebar-wrapper">
+                <div class="list-group list-group-flush">
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="{{ route('applicantPanel') }}">My Profile</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="{{route('myJobs')}}">My Jobs</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="#">My Exams</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
+                        href="#">Update Profile</a>
+                </div>
+            </div>
+
+            <!-- Page content wrapper-->
+            <div id="col-md-10 page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    @yield('applianct_content')
+                </div>
+            </div>
+
+        </div>
+    </body>
 </div>
 
-@yield('applianct_content')
+
 
 
 @endsection
