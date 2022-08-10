@@ -247,12 +247,19 @@ class EmployerController extends Controller
             'jobPostId' => 'required'
         ]);
 
+        if ($request->hasFile('questionFile')) {
+            $file = $request->file('questionFile');
+            $fileRename = "question_" . rand(0, 1000) . date('Ymdhis') . "." . $file->getClientOriginalExtension();
+            $file->storeAs('question', $fileRename);
+        }
+
         $exam = Exam::with('jobPost')->find($id);
         $exam->update([
             'examName' => $request->examName,
             'examSet' => $request->examSet,
             'examType' => $request->examType,
-            'jobPostId' => $request->jobPostId
+            'jobPostId' => $request->jobPostId,
+            'questionFile' => $fileRename
         ]);
         return redirect()->route('employerExams');
     }

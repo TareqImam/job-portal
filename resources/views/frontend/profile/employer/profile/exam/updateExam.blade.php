@@ -13,7 +13,7 @@
 @endif
 
 <div class="container mb-3">
-    <form action="{{route('storeExam', $exam->id)}}" method="POST">
+    <form action="{{route('storeExam', $exam->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
@@ -32,6 +32,9 @@
             <option value="{{$data->id}}">{{$data->jobPostName}}</option>
             @endforeach
         </select><br>
+
+        <label for="" class="mt-3">Question</label>
+        <input type="file" class="form-control" name="questionFile" required>
 
         <button type="submit" class="btn mt-3">Submit</button>
     </form>
