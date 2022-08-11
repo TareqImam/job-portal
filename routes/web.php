@@ -195,9 +195,14 @@ Route::group(['middleware' => ['authApplicant', 'checkApplicant'], 'prefix' => '
 
     Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
 
-    Route::get('/update', [ApplicantProfileController::class, 'update'])->name('update');
 
-    Route::get('/changePassword', [ApplicantProfileController::class, 'changePassword'])->name('changePassword');
+
+
+    // -----------------------------Update applicant profile-----------------------------//
+
+    Route::get('/update/{id}', [ApplicantProfileController::class, 'update'])->name('update');
+
+    Route::put('/update/store/{id}', [ApplicantProfileController::class, 'updateStoreA'])->name('updateStoreA');
 });
 
 
@@ -281,6 +286,8 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
 Route::get('/job/list', [JobListController::class, 'jobListView'])->name('jobList');
 
 Route::get('/job/view/details/{id}', [JobListController::class, 'singleViewJ'])->name('singleViewJ');
+
+Route::get('/job/post/apply/{id}', [JobListController::class, 'jobApply'])->name('jobApply');
 
 
 

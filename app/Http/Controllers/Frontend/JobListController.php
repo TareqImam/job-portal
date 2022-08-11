@@ -21,7 +21,14 @@ class JobListController extends Controller
     {
         $user = User::find($id);
         $category = Category::with('jobs')->find($id);
-        $jobPost = JobPost::with('category')->find($id);
+        $jobPost = JobPost::with('category')->with('user')->find($id);
         return view('frontend.pages.jobs.jobDetails', compact('category', 'jobPost', 'user'));
+    }
+
+    public function jobApply($id)
+    {
+        $user = User::find($id);
+        $jobPost = JobPost::with('user')->find($id);
+        return view('frontend.pages.jobs.jobApply', compact('jobPost'));
     }
 }

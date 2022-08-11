@@ -29,7 +29,7 @@
                     <div class="single-job-items mb-50">
                         <div class="job-items">
                             <div class="company-img company-img-details">
-                                <a href=""><img class="mb-2" style="width: 100px;" src="{{ url('/images/company')."/".auth()->user()->companyImage }}" alt="img"></a>
+                                <a href=""><img class="mb-2" style="width: 100px;" src="{{ url('/images/company')."/".$jobPost->user->companyImage }}" alt="img"></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#">
@@ -97,21 +97,31 @@
                             <li>Salary : <span> ৳{{ $jobPost->jobPostSalary*12 }} yearly</span></li>
                             <li>Apply last date : <span>12 Sep 2020</span></li>
                         </ul>
+
+
                         <div class="apply-btn2">
-                            <a href="#" class="btn">Apply Now</a>
+                            @if(auth()->check() && auth()->user()->role=='employer')
+                                <a href="" style="pointer-events: none;" class="btn">Apply Now</a>
+                            @elseif(auth()->check() && auth()->user()->role=='applicant')
+                                <a href="{{ route('jobApply', $jobPost->id) }}" class="btn">Apply Now</a>
+                            @else
+                                <a href="{{route('loginApplicant')}}" class="btn">Apply Now</a>
+                            @endif
                         </div>
+
+
                     </div>
                     <div class="post-details4  mb-50">
                         <!-- Small Section Tittle -->
                         <div class="small-section-tittle">
                             <h4>Company Information</h4>
                         </div>
-                        <span>{{ auth()->user()->companyName }}</span>
-                        <p>{{ auth()->user()->companyDescription }}</p>
+                        <span>{{ $jobPost->user->companyName }}</span>
+                        <p>{{ $jobPost->user->companyDescription }}</p>
                         <ul>
-                            <li>Name: <span>{{ auth()->user()->companyName }}</span></li>
-                            <li>Web : <span>{{ auth()->user()->companyWeb }}</span></li>
-                            <li>Email: <span>{{ auth()->user()->companyEmail }}</span></li>
+                            <li>Name: <span>{{ $jobPost->user->companyName }}</span></li>
+                            <li>Web : <span>{{ $jobPost->user->companyWeb }}</span></li>
+                            <li>Email: <span>{{ $jobPost->user->companyEmail }}</span></li>
                         </ul>
                     </div>
                 </div>

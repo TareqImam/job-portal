@@ -18,20 +18,18 @@
                         href="{{route('myJobs')}}">My Jobs</a>
 
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
-                        href="#">My Exams</a>
+                        href="{{route('myExam')}}">My Exams</a>
 
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
-                        href="#">Update Profile</a>
+                        href="{{route('update', auth()->user()->id)}}">Update Profile</a>
                 </div>
             </div>
 
             <!-- Page content wrapper-->
-            <div id="col-md-10 page-content-wrapper">
                 <!-- Page content-->
-                <div class="container-fluid">
+                <div class="container">
                     @yield('applianct_content')
                 </div>
-            </div>
 
         </div>
     </body>

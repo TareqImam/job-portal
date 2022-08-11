@@ -25,12 +25,25 @@ return new class extends Migration
             $table->string('companyName')->nullable();
             $table->string('companyWeb')->nullable();
             $table->string('companyEmail')->nullable();
-            $table->string('companyDescription')->nullable();
+            $table->text('companyDescription')->nullable();
             $table->text('companyImage')->nullable();
 
             // ---------------applicant details--------------- //
-            $table->string('applicantImage')->nullable();
-            $table->string('applicantCV')->nullable();
+            $table->text('applicantImage')->nullable();
+            $table->string('applicantPhone')->nullable();
+            $table->string('applicantDate')->nullable();
+            $table->string('applicantAge')->nullable();
+            $table->string('applicatnGender')->nullable();
+            $table->string('category_id')->nullable();
+            $table->string('applicantTitle')->nullable();
+            $table->string('applicantExperience')->nullable();
+            $table->string('applicantSkill')->nullable();
+            $table->string('applicantSalary')->nullable();
+            $table->string('applicantExpectedSalary')->nullable();
+            $table->string('applicantNationality')->nullable();
+            $table->string('applicantAddress')->nullable();
+            $table->string('applicantEducation')->nullable();
+            $table->text('applicantCV')->nullable();
 
             $table->string('role')->default('applicant');
             $table->rememberToken();
