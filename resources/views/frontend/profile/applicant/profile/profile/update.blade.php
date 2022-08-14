@@ -31,8 +31,8 @@
             </div>
             <select type="text" class="form-control" id="inputGroupSelect01" value="{{ $user->applicatnGender }}" name="applicatnGender" required>
                 <option selected>Select</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
         </div>
 

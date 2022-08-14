@@ -111,7 +111,7 @@
                         <h2>Featured Jobs</h2>
                     </div>
                 </div>
-            </div>
+            </div>t
             <div class="row justify-content-center">
                 <div class="col-xl-10">
                     @foreach($jobPost as $data)
@@ -119,22 +119,22 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="{{route('singleViewJ', $data->id)}}"><img src="{{url('frontend/assets/img/icon/job-list1.png')}}" alt=""></a>
+                                <a href=""><img class="mb-2" style="width: 100px;" src="{{ url('/images/company')."/".$data->user->companyImage }}" alt="img"></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="{{route('singleViewJ', $data->id)}}">
                                     <h4>{{$data->jobPostName}}</h4>
                                 </a>
                                 <ul>
-                                    <li>Creative Agency</li>
-                                    <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                    <li>$3500 - $4000</li>
+                                    <li>{{$data->user->companyName}}</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{$data->jobPostLocation}}</li>
+                                    <li>৳ {{$data->jobPostSalary}}</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="items-link f-right">
                             <a href="{{route('singleViewJ', $data->id)}}">Apply</a>
-                            <span>7 hours ago</span>
+                            <span>{{ $data->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
                     @endforeach
