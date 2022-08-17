@@ -103,7 +103,7 @@
                             @if(auth()->check() && auth()->user()->role=='employer')
                                 <a href="" style="pointer-events: none;" class="btn">Apply Now</a>
                             @elseif(auth()->check() && auth()->user()->role=='applicant')
-                                <a href="{{ route('jobApply', $jobPost->id) }}" class="btn">Apply Now</a>
+                                <a href="{{ route('job.apply', $jobPost->id) }}" class="btn">Apply Now</a>
                             @else
                                 <a href="{{route('loginApplicant')}}" class="btn">Apply Now</a>
                             @endif

@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\JobPost;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Exam extends Model
+class ApplyJob extends Model
 {
+
     use HasFactory;
     protected $guarded = [];
 
     public function jobPost()
     {
-        return $this->belongsTo(JobPost::class, 'jobPostId', 'id');
+        return $this->belongsTo(JobPost::class, 'jobPost_Id', 'id');
     }
 
     public function user()

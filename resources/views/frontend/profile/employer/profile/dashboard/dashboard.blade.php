@@ -22,7 +22,7 @@
 
                 </div>
                 <!-- Right Content -->
-                <div class="col-xl-4 col-lg-4">
+                <div class="col-xl-12 col-lg-12">
                     <div class="post-details3  mb-50">
                         <!-- Small Section Tittle -->
                         <div class="small-section-tittle">

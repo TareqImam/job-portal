@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function applyJob()
+    {
+        return $this->belongsTo(ApplyJob::class);
+    }
 }

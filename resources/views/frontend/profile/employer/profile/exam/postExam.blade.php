@@ -10,7 +10,6 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Set</th>
                 <th>Type</th>
                 <th>Job Name</th>
                 <th>Action</th>
@@ -21,7 +20,6 @@
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$data->examName}}</td>
-                <td>{{$data->examSet}}</td>
                 <td>{{$data->examType}}</td>
                 <td>{{$data->jobPost->jobPostName}}</td>
                 <td>

@@ -24,7 +24,7 @@
                         href="{{route('employerExams')}}">Manage Exams</a>
 
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
-                        href="#!">Shortlisted CVs</a>
+                        href="{{route('candidates')}}">Manage Candidate</a>
                 </div>
             </div>
 

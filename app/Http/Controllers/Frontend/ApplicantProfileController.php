@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\ApplyJob;
 
 class ApplicantProfileController extends Controller
 {
@@ -16,7 +18,8 @@ class ApplicantProfileController extends Controller
 
     public function myJobs()
     {
-        return view('frontend.profile.applicant.profile.job.jobs');
+        $applyJob = ApplyJob::with('jobPost')->get();
+        return view('frontend.profile.applicant.profile.job.jobs', compact('applyJob'));
     }
 
     public function myExam()
@@ -52,7 +55,7 @@ class ApplicantProfileController extends Controller
             'email' => $request->email,
             'applicantPhone' => $request->applicantPhone,
             'applicantDate' => $request->applicantDate,
-            'applicantAge' => $request->applicantAge,
+            'applicantAge' => Carbon::parse($request->applicantDate)->age,
             'applicatnGender' => $request->applicatnGender,
             'category_id' => $request->category_id,
             'applicantTitle' => $request->applicantTitle,

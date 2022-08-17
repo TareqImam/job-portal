@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ApplyJob;
 use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 
@@ -196,13 +197,13 @@ class EmployerController extends Controller
 
     public function employerExams()
     {
-        $exam = Exam::all();
+        $exam = Exam::where('user_id', auth()->user()->id)->get();
         return view('frontend.profile.employer.profile.exam.postExam', compact('exam'));
     }
 
     public function addExam()
     {
-        $jobPost = JobPost::all();
+        $jobPost = JobPost::where('user_id', auth()->user()->id)->get();
         return view('frontend.profile.employer.profile.exam.addExam', compact('jobPost'));
     }
 
@@ -210,7 +211,6 @@ class EmployerController extends Controller
     {
         $request->validate([
             'examName' => 'required',
-            'examSet' => 'required',
             'examType' => 'required',
             'jobPostId' => 'required'
         ]);
@@ -223,8 +223,8 @@ class EmployerController extends Controller
 
         Exam::create([
             'examName' => $request->examName,
-            'examSet' => $request->examSet,
             'examType' => $request->examType,
+            'user_id' => auth()->user()->id,
             'jobPostId' => $request->jobPostId,
             'questionFile' => $fileRename
         ]);
@@ -280,6 +280,18 @@ class EmployerController extends Controller
 
 
 
+
+
+
+    // ------------------------------Candidate methods start------------------------------- //
+
+    public function candidates()
+    {
+        $applyJob = ApplyJob::all();
+        return view('frontend.profile.employer.profile.candidate.candidate', compact('applyJob'));
+    }
+
+    // ------------------------------Candidate methods start------------------------------- //
 
 
 

@@ -31,7 +31,7 @@ return new class extends Migration
             // ---------------applicant details--------------- //
             $table->text('applicantImage')->nullable();
             $table->string('applicantPhone')->nullable();
-            $table->string('applicantDate')->nullable();
+            $table->date('applicantDate')->nullable();
             $table->string('applicantAge')->nullable();
             $table->string('applicatnGender')->nullable();
             $table->string('category_id')->nullable();

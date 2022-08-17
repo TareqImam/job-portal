@@ -24,7 +24,10 @@ use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
 use App\Http\Controllers\Frontend\CategoryListController;
 use App\Http\Controllers\Frontend\ApplicantProfileController;
+use App\Http\Controllers\Frontend\ApplyJobController;
+use App\Models\ApplyJob;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -203,6 +206,12 @@ Route::group(['middleware' => ['authApplicant', 'checkApplicant'], 'prefix' => '
     Route::get('/update/{id}', [ApplicantProfileController::class, 'update'])->name('update');
 
     Route::put('/update/store/{id}', [ApplicantProfileController::class, 'updateStoreA'])->name('updateStoreA');
+
+
+
+    // -----------------------------Apply Job-----------------------------//
+
+    Route::get('/job/apply/{id}', [ApplyJobController::class, 'jobApply'])->name('job.apply');
 });
 
 
@@ -271,6 +280,13 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
     Route::get('/exam/view/{id}', [FrontendEmployer::class, 'singleViewE'])->name('singleViewE');
 
 
+
+
+    // -----------------------------Employer routes(candiate)---------------------------//
+    Route::get('/candidates', [FrontendEmployer::class, 'candidates'])->name('candidates');
+
+
+
     // -----------------------------Employer routes(question)---------------------------//
     Route::get('/exam/questions', [FrontendEmployer::class, 'examQuestion'])->name('examQuestion');
 });
@@ -287,7 +303,7 @@ Route::get('/job/list', [JobListController::class, 'jobListView'])->name('jobLis
 
 Route::get('/job/view/details/{id}', [JobListController::class, 'singleViewJ'])->name('singleViewJ');
 
-Route::get('/job/post/apply/{id}', [JobListController::class, 'jobApply'])->name('jobApply');
+// Route::get('/job/post/apply/{id}', [JobListController::class, 'jobApply'])->name('jobApply');
 
 
 

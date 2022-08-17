@@ -19,9 +19,6 @@
         <label for="" class="mt-3">Name</label>
         <input type="text" class="form-control" name="examName" required>
 
-        <label for="" class="mt-3">Set</label>
-        <input type="text" class="form-control" name="examSet" required>
-
         <label for="" class="mt-3">Type</label>
         <input type="text" class="form-control" name="examType" required>
 

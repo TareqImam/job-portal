@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApplyJob;
 use App\Models\Category;
 use App\Models\JobPost;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobListController extends Controller
 {
@@ -25,10 +27,10 @@ class JobListController extends Controller
         return view('frontend.pages.jobs.jobDetails', compact('category', 'jobPost', 'user'));
     }
 
-    public function jobApply($id)
-    {
-        $user = User::find($id);
-        $jobPost = JobPost::with('user')->find($id);
-        return view('frontend.pages.jobs.jobApply', compact('jobPost'));
-    }
+    // public function jobApply($id)
+    // {
+    //     $user = User::find($id);
+    //     $jobPost = JobPost::with('user')->find($id);
+    //     return view('frontend.pages.jobs.jobApply', compact('jobPost'));
+    // }
 }

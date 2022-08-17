@@ -22,8 +22,6 @@
         <label for="" class="mt-3">Birth of Date</label>
         <input type="date" class="form-control" value="{{ $user->applicantDate }}" name="applicantDate" required>
 
-        <label for="" class="mt-3">Age</label>
-        <input type="text" class="form-control" value="{{ $user->applicantAge }}" name="applicantAge" required>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
