@@ -287,7 +287,7 @@ class EmployerController extends Controller
 
     public function candidates()
     {
-        $applyJob = ApplyJob::all();
+        $applyJob = ApplyJob::where('employer_id', auth()->user()->id)->get();
         return view('frontend.profile.employer.profile.candidate.candidate', compact('applyJob'));
     }
 
