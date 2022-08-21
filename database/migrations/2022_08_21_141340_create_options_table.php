@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exams', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->string('examName');
-            $table->string('examType');
-            $table->integer('jobPostId');
-            $table->integer('user_id');
+            $table->integer('question_Id');
+            $table->string('a');
+            $table->string('b');
+            $table->string('c')->nullable();
+            $table->string('d')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exams');
+        Schema::dropIfExists('options');
     }
 };

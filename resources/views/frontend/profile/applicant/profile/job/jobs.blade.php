@@ -20,8 +20,8 @@
                 <td>{{$data->jobPost->jobPostName}}</td>
                 <td>{{$data->status}}</td>
                 <td>
-                    <a href="{{route('singleViewJ', $data->id)}}" class="btn">View</a>
-                    <a href="{{route('jobDelete', $data->id)}}" class="btn">Cancel</i></a>
+                    <a href="{{route('singleViewJ', $data->jobPost->id)}}" class="btn">View</a>
+                    <a href="{{route('cancel.job', $data->id)}}" class="btn">Cancel</i></a>
                 </td>
             </tr>
             @endforeach

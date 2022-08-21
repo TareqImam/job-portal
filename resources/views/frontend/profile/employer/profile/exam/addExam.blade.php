@@ -30,7 +30,7 @@
         </select><br>
 
         <label for="" class="mt-3">Question</label>
-        <input type="file" class="form-control" name="questionFile" required>
+        <input type="text" class="form-control" name="question" required>
 
         <button type="submit" class="btn mt-3">Submit</button>
     </form>

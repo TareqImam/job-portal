@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jobPostVacancy');
             $table->string('jobPostSalary');
             $table->string('jobPostLocation');
-            $table->string('jobPostStatus')->default('Active');
+            $table->string('jobPostStatus')->default('Pending');
             $table->integer('categoryId');
             $table->integer('user_id');
             $table->text('jobPostDescription');

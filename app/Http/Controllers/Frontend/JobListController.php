@@ -21,10 +21,9 @@ class JobListController extends Controller
 
     public function singleViewJ($id)
     {
-        $user = User::find($id);
-        $category = Category::with('jobs')->find($id);
         $jobPost = JobPost::with('category')->with('user')->find($id);
-        return view('frontend.pages.jobs.jobDetails', compact('category', 'jobPost', 'user'));
+        // dd($jobPost);
+        return view('frontend.pages.jobs.jobDetails', compact('jobPost'));
     }
 
     // public function jobApply($id)

@@ -21,7 +21,6 @@
                                         @auth
                                         @if(auth()->user()->role=='applicant')
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
-                                        <li><a href="#">Find an Employer</a></li>
                                         <li><a href="{{route('categoryList')}}">Categories</a>
                                         </li>
                                         @endif
@@ -29,7 +28,7 @@
 
                                         @guest()
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
-                                        <li><a href="#">Find an Employer</a></li>
+                                        <li><a href="{{route('categoryList')}}">Categories</a>  
                                         @endguest
 
                                         <li><a href="contact.html">About</a>

@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ApplyJob;
+use App\Models\Exam;
 
 class ApplicantProfileController extends Controller
 {
@@ -18,13 +19,20 @@ class ApplicantProfileController extends Controller
 
     public function myJobs()
     {
-        $applyJob = ApplyJob::with('jobPost')->get();
+        $applyJob = ApplyJob::with('jobPost')->where('user_id', auth()->user()->id)->get();
         return view('frontend.profile.applicant.profile.job.jobs', compact('applyJob'));
+    }
+
+    public function cancelJob($id)
+    {
+        $applyJob = ApplyJob::find($id)->delete();
+        return redirect()->back();
     }
 
     public function myExam()
     {
-        return view('frontend.profile.applicant.profile.exam.exams');
+        $applyJob = ApplyJob::where('user_id', auth()->user()->id)->get();
+        return view('frontend.profile.applicant.profile.exam.exams', compact('applyJob'));
     }
 
     public function update($id)

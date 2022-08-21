@@ -196,6 +196,8 @@ Route::group(['middleware' => ['authApplicant', 'checkApplicant'], 'prefix' => '
 
     Route::get('/myJobs', [ApplicantProfileController::class, 'myJobs'])->name('myJobs');
 
+    Route::get('/myJobs/cancel/{id}', [ApplicantProfileController::class, 'cancelJob'])->name('cancel.job');
+
     Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
 
 

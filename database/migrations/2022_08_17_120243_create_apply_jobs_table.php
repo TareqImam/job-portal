@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('status')->default('Pending');
             $table->foreignId('jobPost_Id');
+            $table->foreignId('exam_Id');
             $table->foreignId('user_id');
             $table->foreignId('employer_id');
             $table->timestamps();

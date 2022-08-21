@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="items-link items-link2 f-right">
                                     <a href="{{route('singleViewJ', $data->id)}}">Apply</a>
-                                    <span>7 hours ago</span>
+                                    <span>{{ $data->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
                             @endforeach
