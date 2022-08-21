@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('examName');
             $table->string('examType');
+            $table->integer('question_Id');
             $table->integer('jobPostId');
             $table->integer('user_id');
             $table->timestamps();

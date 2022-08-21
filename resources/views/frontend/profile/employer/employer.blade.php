@@ -29,12 +29,10 @@
             </div>
 
             <!-- Page content wrapper-->
-            <div id="col-md-10 page-content-wrapper">
                 <!-- Page content-->
-                <div class="container-fluid">
+                <div class="container">
                     @yield('employer_content')
                 </div>
-            </div>
 
         </div>
     </body>
