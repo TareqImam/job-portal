@@ -14,7 +14,7 @@
                         <div class="post-details1 mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h3>Overview</h3>
+                                <h3>Dashboard</h3>
                             </div>
                             <p></p>
                         </div>

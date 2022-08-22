@@ -290,7 +290,11 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
 
 
     // -----------------------------Employer routes(question)---------------------------//
-    Route::get('/exam/questions', [FrontendEmployer::class, 'examQuestion'])->name('examQuestion');
+    // Route::get('/exam/questions', [FrontendEmployer::class, 'examQuestion'])->name('exam.question');
+
+    Route::get('/exam/question/single-add', [FrontendEmployer::class, 'singleQuestion'])->name('single.question');
+
+    Route::post('/exam/question/single-add/submit/{id}',[FrontendEmployer::class,'singleSubmit'])->name('single.submit');
 });
 
 

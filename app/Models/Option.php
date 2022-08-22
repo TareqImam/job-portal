@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Option extends Model
 {
     use HasFactory;
-    protected $guraded = [];
+    protected $guarded = [];
 
     public function question()
     {
-        return $this->belongsTo(Question::class, 'question_Id', 'id');
+        return $this->hasMany(Question::class, 'question_Id', 'id');
     }
 }

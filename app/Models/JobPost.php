@@ -19,4 +19,9 @@ class JobPost extends Model
     {
         return $this->belongsTo(Category::class, 'categoryId', 'id');
     }
+
+    public function exam()
+    {
+        return $this->hasMany(Exam::class, 'exam_id', 'id');
+    }
 }

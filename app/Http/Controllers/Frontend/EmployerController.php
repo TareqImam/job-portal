@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ApplyJob;
 use App\Models\Company;
+use App\Models\Option;
+use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 
 class EmployerController extends Controller
@@ -174,7 +176,7 @@ class EmployerController extends Controller
 
     public function singleView($id)
     {
-        $jobPost = JobPost::with('employer')->with('category')->find($id);
+        $jobPost = JobPost::with('category')->find($id);
         return view('frontend.profile.employer.profile.jobs.singleView', compact('jobPost'));
     }
 
@@ -197,7 +199,7 @@ class EmployerController extends Controller
 
     public function employerExams()
     {
-        $exam = Exam::where('user_id', auth()->user()->id)->get();
+        $exam = Exam::where('user_id', auth()->user()->id)->with('jobPost')->get();
         return view('frontend.profile.employer.profile.exam.postExam', compact('exam'));
     }
 
@@ -293,9 +295,36 @@ class EmployerController extends Controller
 
     // ------------------------------Question methods start------------------------------- //
 
-    public function examQuestion()
+    // public function examQuestion()
+    // {
+    //     return view('frontend.profile.employer.profile.question.question');
+    // }
+
+    public function singleQuestion()
     {
-        return view('frontend.profile.employer.profile.question.question');
+        $exam = Exam::first();
+        return view('frontend.profile.employer.profile.question.question', compact('exam'));
+    }
+
+    public function singleSubmit(Request $request, $id)
+    {
+        $exam = Exam::first();
+
+        Question::create([
+            'question' => $request->question,
+            'exam_Id' => $id
+        ]);
+
+        Option::create([
+            'question_Id' => Question::first()->id,
+            'a' => $request->A,
+            'b' => $request->B,
+            'c' => $request->C,
+            'd' => $request->D
+        ]);
+
+
+        return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
     }
 
     // ------------------------------Question methods start------------------------------- //

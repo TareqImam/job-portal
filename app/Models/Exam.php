@@ -17,6 +17,11 @@ class Exam extends Model
         return $this->belongsTo(JobPost::class, 'jobPostId', 'id');
     }
 
+    public function question()
+    {
+        return $this->hasMany(Question::class, 'question_Id', 'id');
+    }
+
     public function applyJob()
     {
         return $this->belongsTo(ApplyJob::class, 'applyJobId', 'id');

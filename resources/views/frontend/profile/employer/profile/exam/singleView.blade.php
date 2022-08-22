@@ -10,14 +10,17 @@
             <div class="card-body">
                 <h5><strong>Name: </strong>{{$exam->examName}}</h5>
 
-                <h5><strong>Set: </strong>{{$exam->examSet}}</h5>
-
                 <h5><strong>Type: </strong>{{$exam->examType}}</h5>
 
                 <h5><strong>Job Post: </strong>{{$exam->jobPost->jobPostName}}</h5>
 
                 <h5><strong>Job Question: </strong></h5>
-                <a href="{{ url('/images/question/') }}" download="{{$exam->questionFile}}" class="btn">Download</a>
+
+                <a class="btn" href="{{ route('single.question', $exam->id) }}">Add Question</a>
+
+                <div class="container">
+                    
+                </div>
             </div>
         </div>
     </div>

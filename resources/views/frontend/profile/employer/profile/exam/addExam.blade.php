@@ -29,9 +29,6 @@
             @endforeach
         </select><br>
 
-        <label for="" class="mt-3">Question</label>
-        <input type="text" class="form-control" name="question" required>
-
         <button type="submit" class="btn mt-3">Submit</button>
     </form>
 </div>
