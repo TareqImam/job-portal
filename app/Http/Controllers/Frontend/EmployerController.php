@@ -268,7 +268,9 @@ class EmployerController extends Controller
     public function singleViewE($id)
     {
         $exam = Exam::with('jobPost')->find($id);
-        return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
+        $questions = Question::where('exam_id', $id)->get();
+        $option = Option::where('question_Id', $id)->first();
+        return view('frontend.profile.employer.profile.exam.singleView', compact('exam', 'questions', 'option'));
     }
 
     // ------------------------------Exam methods end------------------------------- //
@@ -308,7 +310,7 @@ class EmployerController extends Controller
 
     public function singleSubmit(Request $request, $id)
     {
-        $exam = Exam::first();
+        $exam = Exam::all();
 
         Question::create([
             'question' => $request->question,
