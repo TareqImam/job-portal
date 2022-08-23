@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->id();
             $table->integer('question_Id');
-            $table->string('a');
-            $table->string('b');
-            $table->string('c')->nullable();
-            $table->string('d')->nullable();
+            $table->string('option');
+            $table->string('answer');
             $table->timestamps();
         });
     }

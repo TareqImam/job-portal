@@ -16,20 +16,9 @@
 
                     <h5><strong>Job Question: </strong></h5>
 
-                    <a class="btn" href="{{ route('single.question', $exam->id) }}">Add Question</a><hr>
+                    <a class="btn" href="{{ route('single.question', $exam->id) }}">Add Question</a>
 
-                    <div class="container">
-                    @foreach ($questions as $key=>$question)
-                        <p><strong>Ques.{{ $key+1 }}</strong> {{ $question->question }}</p>
-                        @foreach ($question->option as $data1)
-                            <p><strong>1.</strong> {{ $data1->a }}</p>
-                            <p><strong>2.</strong> {{ $data1->b }}</p>
-                            <p><strong>3.</strong> {{ $data1->c }}</p>
-                            <p><strong>4.</strong> {{ $data1->d }}</p>
-                        @endforeach
-                        <hr>
-                    @endforeach
-                    </div>
+                    <a class="btn" href="{{ route('view.question', $exam->id) }}">View Question</a>
 
                 </div>
             </div>

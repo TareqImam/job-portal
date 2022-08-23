@@ -308,26 +308,30 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.profile.question.question', compact('exam'));
     }
 
+    public function viewQuestion()
+    {
+        $questions = Question::with('option')->get();
+        return view('frontend.profile.employer.profile.question.singleQuestion', compact('questions'));
+    }
+
     public function singleSubmit(Request $request, $id)
     {
-        $exam = Exam::all();
+        $exam = Exam::with('jobPost')->find($id);
 
-        Question::create([
+        $questions = Question::create([
             'question' => $request->question,
             'exam_Id' => $id
         ]);
 
-        Option::create([
-            'question_Id' => Question::first()->id,
-            'a' => $request->A,
-            'b' => $request->B,
-            'c' => $request->C,
-            'd' => $request->D
-        ]);
-
+        foreach ($request->option as $opt) {
+            Option::create([
+                'question_Id' => $questions->id,
+                'answer' => $request->answer,
+                'option' => $opt
+            ]);
+        }
 
         return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
     }
-
     // ------------------------------Question methods start------------------------------- //
 }
