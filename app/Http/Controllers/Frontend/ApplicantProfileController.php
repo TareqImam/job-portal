@@ -7,8 +7,10 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ApplicantAnswer;
 use App\Models\ApplyJob;
 use App\Models\Exam;
+use App\Models\Question;
 
 class ApplicantProfileController extends Controller
 {
@@ -34,6 +36,24 @@ class ApplicantProfileController extends Controller
         $applyJob = ApplyJob::where('user_id', auth()->user()->id)->get();
         return view('frontend.profile.applicant.profile.exam.exams', compact('applyJob'));
     }
+
+    public function participate($id)
+    {
+        $questions = Question::with('option')->get();
+        return view('frontend.profile.applicant.profile.exam.participate', compact('questions'));
+    }
+
+    public function myAnswer(Request $request, $id)
+    {
+        ApplicantAnswer::create([
+            'user_Id' => auth()->user()->id,
+            'exam_Id' => $id,
+            'question_Id' => $id,
+            'answer'
+        ]);
+    }
+
+
 
     public function update($id)
     {

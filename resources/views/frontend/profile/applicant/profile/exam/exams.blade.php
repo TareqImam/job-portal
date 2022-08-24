@@ -21,7 +21,7 @@
                 <td>{{$data->exam->examType}}</td>
                 <td>{{$data->jobPost->jobPostName}}</td>
                 <td>
-                    <a href="" class="btn">Participate</a>
+                    <a href="{{ route('participate', $data->exam->id) }}" class="btn">Participate</a>
                 </td>
             </tr>
             @endforeach

@@ -200,6 +200,10 @@ Route::group(['middleware' => ['authApplicant', 'checkApplicant'], 'prefix' => '
 
     Route::get('/myExam', [ApplicantProfileController::class, 'myExam'])->name('myExam');
 
+    Route::get('/myExam/participate/{id}', [ApplicantProfileController::class, 'participate'])->name('participate');
+
+    Route::post('/myExam/answer/{id}', [ApplicantProfileController::class, 'myAnswer'])->name('my.answer');
+
 
 
 
@@ -297,7 +301,6 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
     Route::get('/exam/question/single-view', [FrontendEmployer::class, 'viewQuestion'])->name('view.question');
 
     Route::post('/exam/question/single-add/submit/{id}', [FrontendEmployer::class, 'singleSubmit'])->name('single.submit');
-
 });
 
 

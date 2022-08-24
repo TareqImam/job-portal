@@ -22,6 +22,6 @@ class JobPost extends Model
 
     public function exam()
     {
-        return $this->hasMany(Exam::class, 'exam_id', 'id');
+        return $this->hasMany(Exam::class, 'jobPostId', 'id');
     }
 }
