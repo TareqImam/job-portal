@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="container">
 
-                            @foreach ($questions as $key=>$data)
+                            @foreach ($question as $key=>$data)
                             <p><strong>Ques.{{ $key+1 }}</strong> {{ $data->question }}</p>
                             @foreach ($data->option as $key=>$opt)
                             <label>{{ $key+1 }}. {{ $opt->option }}</label>

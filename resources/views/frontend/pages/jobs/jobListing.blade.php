@@ -87,7 +87,7 @@
                                         <ul>
                                             <li>{{$data->employerName}}</li>
                                             <li><i class="fas fa-map-marker-alt"></i>{{$data->jobPostLocation}}</li>
-                                            <li>$3500 - $4000</li>
+                                            <li>৳{{ $data->jobPostSalary }}</li>
                                         </ul>
                                     </div>
                                 </div>

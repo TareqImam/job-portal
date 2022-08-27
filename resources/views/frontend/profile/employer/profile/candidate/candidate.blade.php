@@ -11,6 +11,7 @@
                     <th>#</th>
                     <th>Candidate Name</th>
                     <th>Job Post</th>
+                    <th>Marks</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$data->user->name}}</td>
                     <td>{{$data->jobPost->jobPostName}}</td>
+                    <td>a</td>
                     <td>
                         <a href="" class="btn">View</a>
                         <a href="" class="btn">Approve</a>

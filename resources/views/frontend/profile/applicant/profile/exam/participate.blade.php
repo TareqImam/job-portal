@@ -8,14 +8,15 @@
             <div class="card">
                 <div class="card-body">
                     <div class="container">
-                        <form action="{{-- route('my.answer') --}}" method="POST">
+                        <form action="{{ route('my.answer', $exam->id) }}" method="POST">
                             @csrf
-
-                            @foreach ($questions as $key=>$data)
-                            <p><strong>Ques.{{ $key+1 }}</strong> {{ $data->question }}</p>
-                            <select name="answer" id="">
+                            @foreach ($question as $data)
+                            <p><strong>Ques.{{ $data->id }}</strong> {{ $data->question }}</p>
+                            <input type="hidden" name=" answer[{{ $data->id }}]">
+                            <select name="answer[{{ $data->id }}][]" id="">
+                                <option >Select Answer</option>
                                 @foreach ($data->option as $item)
-                                <option value="{{ $item->option }}">{{ $item->option }}</option>
+                                <option name="answer" value="{{ $item->option }}">{{ $item->option }}</option>
                                 @endforeach
                             </select>
                             <hr>

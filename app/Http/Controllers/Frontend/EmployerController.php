@@ -269,7 +269,7 @@ class EmployerController extends Controller
     {
         $exam = Exam::with('jobPost')->find($id);
         $questions = Question::where('exam_id', $id)->get();
-        $option = Option::where('question_Id', $id)->first();
+        $option = Option::where('question_Id', $id)->get();
         return view('frontend.profile.employer.profile.exam.singleView', compact('exam', 'questions', 'option'));
     }
 
@@ -285,6 +285,7 @@ class EmployerController extends Controller
     public function candidates()
     {
         $applyJob = ApplyJob::where('employer_id', auth()->user()->id)->get();
+        
         return view('frontend.profile.employer.profile.candidate.candidate', compact('applyJob'));
     }
 
@@ -302,21 +303,22 @@ class EmployerController extends Controller
     //     return view('frontend.profile.employer.profile.question.question');
     // }
 
-    public function singleQuestion()
+    public function singleQuestion($id)
     {
-        $exam = Exam::first();
+        $exam = Exam::find($id);
         return view('frontend.profile.employer.profile.question.question', compact('exam'));
     }
 
-    public function viewQuestion()
+    public function viewQuestion($id)
     {
-        $questions = Question::with('option')->get();
-        return view('frontend.profile.employer.profile.question.singleQuestion', compact('questions'));
+        $exam = Exam::find($id);
+        $question = Question::where('exam_id', $id)->with('option')->get();
+        return view('frontend.profile.employer.profile.question.singleQuestion', compact('exam', 'question'));
     }
 
     public function singleSubmit(Request $request, $id)
     {
-        $exam = Exam::with('jobPost')->find($id);
+        $exam = Exam::find($id);
 
         $questions = Question::create([
             'question' => $request->question,
@@ -331,7 +333,8 @@ class EmployerController extends Controller
             ]);
         }
 
-        return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
+        // return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
+        return redirect()->route('singleViewE', $exam->id);
     }
     // ------------------------------Question methods start------------------------------- //
 }

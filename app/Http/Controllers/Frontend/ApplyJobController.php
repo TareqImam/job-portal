@@ -12,11 +12,12 @@ class ApplyJobController extends Controller
 {
     public function jobApply($id)
     {
+        // dd(Exam::find($id)->id);
         ApplyJob::create([
             'user_id' => auth()->user()->id,
             'jobPost_Id' => $id,
-            'employer_id' => JobPost::first()->user->id,
-            'exam_Id' => Exam::first()->id
+            'employer_id' => JobPost::find($id)->user_id,
+            'exam_Id' => Exam::find($id)->id
         ]);
         return redirect()->route('myJobs');
     }

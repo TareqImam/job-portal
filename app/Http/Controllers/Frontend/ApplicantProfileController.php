@@ -39,20 +39,24 @@ class ApplicantProfileController extends Controller
 
     public function participate($id)
     {
-        $questions = Question::with('option')->get();
-        return view('frontend.profile.applicant.profile.exam.participate', compact('questions'));
+        $exam = Exam::find($id);
+        $question = Question::where('exam_id', $id)->with('option')->get();
+        return view('frontend.profile.applicant.profile.exam.participate', compact('exam', 'question'));
     }
 
     public function myAnswer(Request $request, $id)
     {
-        ApplicantAnswer::create([
-            'user_Id' => auth()->user()->id,
-            'exam_Id' => $id,
-            'question_Id' => $id,
-            'answer'
-        ]);
-    }
+        foreach ($request->answer as $key=>$ans) {
+            ApplicantAnswer::create([
+                'user_Id' => auth()->user()->id,
+                'exam_Id' => Exam::find($id)->id,
+                'question_Id' => $key,
+                'answer' => $ans[0]
+            ]);
+        }
 
+        return redirect()->route('myExam');
+    }
 
 
     public function update($id)
