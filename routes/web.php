@@ -291,6 +291,9 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
     // -----------------------------Employer routes(candiate)---------------------------//
     Route::get('/candidates', [FrontendEmployer::class, 'candidates'])->name('candidates');
 
+    Route::get('/candidates/single/{id}', [FrontendEmployer::class, 'candidatesSingle'])->name('candidates.single');
+
+
 
 
     // -----------------------------Employer routes(question)---------------------------//

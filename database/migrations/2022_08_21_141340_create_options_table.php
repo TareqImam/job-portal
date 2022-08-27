@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->integer('question_Id');
             $table->string('option');
-            $table->string('answer');
             $table->timestamps();
         });
     }

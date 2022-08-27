@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
+use App\Models\ApplicantAnswer;
 use App\Models\ApplyJob;
 use App\Models\Company;
 use App\Models\Option;
@@ -284,12 +286,31 @@ class EmployerController extends Controller
 
     public function candidates()
     {
+        // $answer = ApplicantAnswer::with('question')->where('id', 'question_Id')->first();
+
         $applyJob = ApplyJob::where('employer_id', auth()->user()->id)->get();
-        
+
         return view('frontend.profile.employer.profile.candidate.candidate', compact('applyJob'));
     }
 
-    // ------------------------------Candidate methods start------------------------------- //
+    public function candidatesSingle($id)
+    {
+        $applyJob = ApplyJob::find($id);
+
+        $user = User::find($applyJob->user_id);
+
+        $totalQuestion = Question::where('exam_id', $applyJob->exam_Id)->count();
+
+
+        $obtainMarks = ApplicantAnswer::where('exam_Id', $applyJob->exam_Id)
+            ->where('mark', 1)->where('user_Id', $user->id)->count();
+
+        return view('frontend.profile.employer.profile.candidate.single', compact('applyJob', 'user', 'totalQuestion', 'obtainMarks'));
+    }
+
+
+
+    // ------------------------------Candidate methods end------------------------------- //
 
 
 
@@ -322,13 +343,13 @@ class EmployerController extends Controller
 
         $questions = Question::create([
             'question' => $request->question,
-            'exam_Id' => $id
+            'exam_Id' => $id,
+            'answer' => $request->answer,
         ]);
 
         foreach ($request->option as $opt) {
             Option::create([
                 'question_Id' => $questions->id,
-                'answer' => $request->answer,
                 'option' => $opt
             ]);
         }

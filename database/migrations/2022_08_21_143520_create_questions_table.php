@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('exam_id');
             $table->text('question');
+            $table->string('answer');
             $table->timestamps();
         });
     }

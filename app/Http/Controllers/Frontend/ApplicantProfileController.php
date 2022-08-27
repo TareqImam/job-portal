@@ -46,12 +46,20 @@ class ApplicantProfileController extends Controller
 
     public function myAnswer(Request $request, $id)
     {
-        foreach ($request->answer as $key=>$ans) {
+        foreach ($request->answer as $key => $ans) {
+            $q = Question::find($key);
+            $is_correct = 0;
+
+            if ($q->answer == $ans[0]) {
+                $is_correct = 1;
+            }
+
             ApplicantAnswer::create([
                 'user_Id' => auth()->user()->id,
                 'exam_Id' => Exam::find($id)->id,
                 'question_Id' => $key,
-                'answer' => $ans[0]
+                'answer' => $ans[0],
+                'mark' => $is_correct
             ]);
         }
 
