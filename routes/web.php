@@ -293,6 +293,10 @@ Route::group(['middleware' => ['authEmployer', 'checkEmployer'], 'prefix' => 'em
 
     Route::get('/candidates/single/{id}', [FrontendEmployer::class, 'candidatesSingle'])->name('candidates.single');
 
+    Route::get('/candidates/approve/{id}', [FrontendEmployer::class, 'approve'])->name('approve');
+
+    Route::get('/candidates/reject/{id}', [FrontendEmployer::class, 'reject'])->name('reject');
+
     Route::get('/download/{file}', [FrontendEmployer::class, 'download'])->name('download');
 
 

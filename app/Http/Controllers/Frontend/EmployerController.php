@@ -309,6 +309,24 @@ class EmployerController extends Controller
         return view('frontend.profile.employer.profile.candidate.single', compact('applyJob', 'user', 'totalQuestion', 'obtainMarks'));
     }
 
+    public function approve($id)
+    {
+        $applyJob = ApplyJob::find($id);
+        $applyJob->update([
+            'status' => 'Approved'
+        ]);
+        return redirect()->back();
+    }
+
+    public function reject($id)
+    {
+        $applyJob = ApplyJob::find($id);
+        $applyJob->update([
+            'status' => 'Rejected'
+        ]);
+        return redirect()->back();
+    }
+
     public function download(Request $request, $file)
     {
         return response()->download(public_path('images/applicant/cv/' . $file));

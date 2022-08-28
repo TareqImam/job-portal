@@ -44,8 +44,10 @@
                         </div>
                     </div>
                 </div>
-                <a class="btn" href="">Approve</a>
-                <a class="btn" href="">Reject</a>
+                @if($applyJob->status==='Pending')
+                <a class="btn" href="{{ route('approve',$applyJob->id) }}">Approve</a>
+                <a class="btn" href="{{ route('reject',$applyJob->id) }}">Reject</a>
+                @endif
             </div>
         </div>
     </div>
