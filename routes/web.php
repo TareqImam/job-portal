@@ -93,6 +93,9 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
 
     Route::get('/employers/employerSingleView/{id}', [EmployerController::class, 'employerSingleView'])->name('employerSingleView');
 
+    // employee approve
+    Route::get('/employer/approve/{id}', [EmployerController::class, 'employerApprove'])->name('employer.approve');
+
 
 
     // -----------------------------Job Posting routes---------------------------//

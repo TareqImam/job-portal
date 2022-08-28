@@ -33,7 +33,7 @@ class EmployerController extends Controller
             'role' => $request->role
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Registration successful');
     }
 
     public function loginEmployer()
@@ -43,12 +43,23 @@ class EmployerController extends Controller
 
     public function loginE(Request $request)
     {
-        Auth::attempt([
-            'email' => $request->employerEmail,
-            'password' => $request->employerPassword
-        ]);
+        $employee=User::where( 'email',$request->employerEmail)->first();
+        // dd($employee);
+       if($employee != null){
+            if ($employee->status === 'approve') {
+                Auth::attempt([
+                    'email' => $request->employerEmail,
+                    'password' => $request->employerPassword
+                ]);
 
-        return redirect()->route('employerPanel');
+                return redirect()->route('employerPanel')->with('success', 'Logged in successfully');
+            } else {
+                return redirect()->back()->with('success', 'Your account not Approve yet');
+            }
+       } else {
+            return redirect()->back()->with('success', 'Your account not registered yet');
+        }
+
     }
 
     public function employerPanel()
@@ -315,7 +326,7 @@ class EmployerController extends Controller
         $applyJob->update([
             'status' => 'Approved'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Applicant Approved');
     }
 
     public function reject($id)
@@ -324,7 +335,7 @@ class EmployerController extends Controller
         $applyJob->update([
             'status' => 'Rejected'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Applicant rejected');
     }
 
     public function download(Request $request, $file)

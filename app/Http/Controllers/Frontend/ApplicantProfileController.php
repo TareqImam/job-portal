@@ -28,7 +28,7 @@ class ApplicantProfileController extends Controller
     public function cancelJob($id)
     {
         $applyJob = ApplyJob::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','Job cancled');
     }
 
     public function myExam()

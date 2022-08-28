@@ -21,7 +21,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345'),
-            'role' => 'admin'
+            'role' => 'admin',
+            'status'=>'approve'
         ]);
 
         // ------------------------------Employers-----------------------------//
@@ -29,14 +30,16 @@ class UsersTableSeeder extends Seeder
             'name' => 'Imam',
             'email' => 'imam@gmail.com',
             'password' => bcrypt('12345'),
-            'role' => 'employer'
+            'role' => 'employer',
+            'status' => 'approve'
         ]);
 
         User::create([
             'name' => 'Sajjat',
             'email' => 'sajjat@gmail.com',
             'password' => bcrypt('12345'),
-            'role' => 'employer'
+            'role' => 'employer',
+            'status' => 'approve'
         ]);
 
         User::create([

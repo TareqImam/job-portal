@@ -29,7 +29,7 @@ class ApplicantController extends Controller
             'password' => bcrypt($request->applicantPassword)
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Registration successful');
     }
 
     public function selectLoginAs()
@@ -49,7 +49,7 @@ class ApplicantController extends Controller
             'password' => $request->password
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Logged in successfully');
     }
 
     public function logout()

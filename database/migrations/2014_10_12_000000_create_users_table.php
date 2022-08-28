@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('applicantAddress')->nullable();
             $table->string('applicantEducation')->nullable();
             $table->text('applicantCV')->nullable();
-
+            $table->string('status')->default('pending');
             $table->string('role')->default('applicant');
             $table->rememberToken();
             $table->timestamps();

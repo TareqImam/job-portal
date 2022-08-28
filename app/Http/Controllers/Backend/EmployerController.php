@@ -80,4 +80,11 @@ class EmployerController extends Controller
         $employer = User::where('role', 'employer')->find($id);
         return view('backend.pages.employers.employerSingleView', compact('employer'));
     }
+    public function employerApprove($id){
+        $approve=User::find($id);
+        $approve->update([
+            'status'=>'approve'
+        ]);
+        return redirect()->back()->with('success','Employer Approve');
+    }
 }

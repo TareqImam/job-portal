@@ -21,7 +21,7 @@ class ApplyJobController extends Controller
                 'employer_id' => JobPost::find($id)->user_id,
                 'exam_Id' => Exam::find($id)->id
             ]);
-            return redirect()->route('myJobs');
+            return redirect()->route('myJobs')->with('success', 'Applied successfully');
         } else {
             return redirect()->back()->with('success', 'Already Applied');
         }
