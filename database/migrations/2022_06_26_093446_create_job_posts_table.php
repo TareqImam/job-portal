@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('categoryId');
             $table->integer('user_id');
             $table->text('jobPostDescription');
+            $table->string('deadline');
             $table->timestamps();
         });
     }

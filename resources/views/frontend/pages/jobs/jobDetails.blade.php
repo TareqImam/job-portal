@@ -2,6 +2,24 @@
 
 @section('frontend_content')
 
+@if (session()->has('success'))
+<p class="alert alert-success">
+    {{ session()->get('success') }}
+</p>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>
+            {{ $error }}
+        </li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <main>
 
     <!-- Hero Area Start-->
@@ -95,7 +113,7 @@
                             <li>Vacancy : <span>{{ $jobPost->jobPostVacancy }}</span></li>
                             <li>Job nature : <span>{{ $jobPost->jobPostType }}</span></li>
                             <li>Salary : <span> ৳{{ $jobPost->jobPostSalary*12 }} yearly</span></li>
-                            <li>Apply last date : <span>12 Sep 2020</span></li>
+                            <li>Deadline : <span>{{ $jobPost->deadline }}</span></li>
                         </ul>
 
 

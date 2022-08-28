@@ -85,7 +85,7 @@ class ApplicantProfileController extends Controller
         if ($request->hasFile('applicantCV')) {
             $applicantCV = $request->file('applicantCV');
             $renameApplicantCV = "applicant_" . rand(0, 100000) . date('Ymdhis') . "." . $applicantCV->getClientOriginalExtension();
-            $applicantCV->storeAs('applicant', $renameApplicantCV);
+            $applicantCV->storeAs('applicant/cv', $renameApplicantCV);
         }
 
         $user = User::find($id);

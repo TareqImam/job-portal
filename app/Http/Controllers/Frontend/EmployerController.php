@@ -143,7 +143,8 @@ class EmployerController extends Controller
             'jobPostVacancy' => $request->jobPostVacancy,
             'jobPostSalary' => $request->jobPostSalary,
             'jobPostLocation' => $request->jobPostLocation,
-            'jobPostDescription' => $request->jobPostDescription
+            'jobPostDescription' => $request->jobPostDescription,
+            'deadline' => $request->deadline
         ]);
         return redirect()->route('employerJobs');
     }
@@ -306,6 +307,11 @@ class EmployerController extends Controller
             ->where('mark', 1)->where('user_Id', $user->id)->count();
 
         return view('frontend.profile.employer.profile.candidate.single', compact('applyJob', 'user', 'totalQuestion', 'obtainMarks'));
+    }
+
+    public function download(Request $request, $file)
+    {
+        return response()->download(public_path('images/applicant/cv/' . $file));
     }
 
 

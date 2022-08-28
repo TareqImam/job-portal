@@ -20,6 +20,9 @@
     <label for="" class=" mt-3">Location</label>
     <input type="text" class="form-control" readonly value="{{$jobPost->jobPostLocation}}">
 
+    <label for="" class=" mt-3">Deadline</label>
+    <input type="text" class="form-control" readonly value="{{$jobPost->deadline}}">
+
     <label for="" class=" mt-3">Description</label>
     <textarea type="text" class="form-control" rows="4" readonly>{{$jobPost->jobPostDescription}}</textarea>
 </div>

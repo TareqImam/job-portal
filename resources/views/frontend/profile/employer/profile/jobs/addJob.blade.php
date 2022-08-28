@@ -42,6 +42,9 @@
         <label for="" class="mt-3">Description</label>
         <input type="text" class="form-control" name="jobPostDescription" required>
 
+        <label for="" class="mt-3">Deadline</label>
+        <input type="date" class="form-control" name="deadline" required>
+
         <button type="submit" class="mt-3 btn">Submit</button>
     </form>
 </div>
