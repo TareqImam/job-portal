@@ -29,18 +29,18 @@
                             <h4>Employer Info</h4>
                         </div>
                         <ul>
-                            <li>Employer Name : {{auth()->user()->name}}</li>
-                            <li>Employer Email : {{auth()->user()->email}}</li>
+                            <li>Employer Name : {{$employer->name}}</li>
+                            <li>Employer Email : {{$employer->email}}</li>
                         </ul>
 
                         <div class="small-section-tittle">
-                            <h4>Company Info</h4><img class="mb-2 company-img rounded" style="width: 100px;" src="{{ url('/images/company')."/".auth()->user()->companyImage }}" alt="img">
+                            <h4>Company Info</h4><img class="mb-2 company-img rounded" style="width: 100px;" src="{{ url('/images/company')."/".$employer->companyImage }}" alt="img">
                         </div>
                         <ul>
-                            <li>Company Name : {{auth()->user()->companyName}}</li>
-                            <li>Company Web : {{auth()->user()->companyWeb}}</li>
-                            <li>Company Email : {{auth()->user()->companyEmail}}</li>
-                            <li>Company Description : {{auth()->user()->companyDescription}}</li>
+                            <li>Company Name : {{$employer->companyName}}</li>
+                            <li>Company Web : {{$employer->companyWeb}}</li>
+                            <li>Company Email : {{$employer->companyEmail}}</li>
+                            <li>Company Description : {{$employer->companyDescription}}</li>
                         </ul>
 
                     </div>

@@ -81,7 +81,7 @@ class JobPostController extends Controller
 
     public function jobPostSingleView($id)
     {
-        $jobPost = JobPost::with('employer')->with('category')->find($id);
+        $jobPost = JobPost::with('user')->with('category')->find($id);
         return view('backend.pages.jobs.jobPostSingleView', compact('jobPost'));
     }
 }

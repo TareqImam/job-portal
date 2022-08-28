@@ -5,9 +5,6 @@
 <label for="" class="mt-3">Name</label>
 <input type="text" class="form-control" readonly value="{{$exam->examName}}">
 
-<label for="" class="mt-3">Set</label>
-<input type="text" class="form-control" readonly value="{{$exam->examSet}}">
-
 <label for="" class="mt-3">Type</label>
 <input type="text" class="form-control" readonly value="{{$exam->examType}}">
 
