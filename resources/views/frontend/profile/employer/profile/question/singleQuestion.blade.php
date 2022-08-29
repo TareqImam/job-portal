@@ -12,6 +12,7 @@
 
                             @foreach ($question as $key=>$data)
                             <p><strong>Ques.{{ $key+1 }}</strong> {{ $data->question }}</p>
+                            <p><strong>Correct answer</strong> {{ $data->answer }}</p>
                             @foreach ($data->option as $key=>$opt)
                             <label>{{ $key+1 }}. {{ $opt->option }}</label>
                             <br>
