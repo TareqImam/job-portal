@@ -28,7 +28,7 @@
                                 @endif
 
                                 <li><strong>Title :</strong> {{auth()->user()->applicantTitle}}</li>
-                                <li><strong>Experience :</strong> {{auth()->user()->applicantExperience}}</li>
+                                {{--  <li><strong>Experience :</strong> {{auth()->user()->applicantExperience}}</li>  --}}
                                 <li><strong>Skill :</strong> {{auth()->user()->applicantSkill}}</li>
                                 <li><strong>Current Salary :</strong> {{auth()->user()->applicantSalary}}</li>
                                 <li><strong>Expected Salary :</strong> {{auth()->user()->applicantExpectedSalary}}</li>

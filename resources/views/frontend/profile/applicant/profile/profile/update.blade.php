@@ -17,7 +17,7 @@
         <input type="email" class="form-control" value="{{ $user->email }}" name="email" required>
 
         <label for="" class="mt-3">Phone</label>
-        <input type="text" class="form-control" value="{{ $user->applicantPhone }}" name="companyName" required>
+        <input type="text" class="form-control" value="{{ $user->applicantPhone }}" name="applicantPhone" required>
 
         <label for="" class="mt-3">Birth of Date</label>
         <input type="date" class="form-control" value="{{ $user->applicantDate }}" name="applicantDate" required>
@@ -47,7 +47,7 @@
         <input type="text" class="form-control" value="{{ $user->applicantTitle }}" name="applicantTitle" required>
 
         <label for="" class="mt-3">Skill</label>
-        <input type="text" class="form-control" value="{{ $user->applicantExperience }}" name="applicantExperience"
+        <input type="text" class="form-control" value="{{ $user->applicantSkill }}" name="applicantSkill"
             required>
 
         <label for="" class="mt-3">Current Salary</label>
@@ -59,6 +59,10 @@
 
         <label for="" class="mt-3">Nationality</label>
         <input type="text" class="form-control" value="{{ $user->applicantNationality }}" name="applicantNationality"
+            required>
+
+        <label for="" class="mt-3">Address</label>
+        <input type="text" class="form-control" value="{{ $user->applicantAddress }}" name="applicantAddress"
             required>
 
         <label for="" class="mt-3">Educational Qualification</label>

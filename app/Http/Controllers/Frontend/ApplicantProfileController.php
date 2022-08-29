@@ -28,7 +28,7 @@ class ApplicantProfileController extends Controller
     public function cancelJob($id)
     {
         $applyJob = ApplyJob::find($id)->delete();
-        return redirect()->back()->with('success','Job cancled');
+        return redirect()->back()->with('success', 'Job cancled');
     }
 
     public function myExam()
@@ -99,10 +99,11 @@ class ApplicantProfileController extends Controller
             'applicatnGender' => $request->applicatnGender,
             'category_id' => $request->category_id,
             'applicantTitle' => $request->applicantTitle,
-            'applicantExperience' => $request->applicantExperience,
+            'applicantSkill' => $request->applicantSkill,
             'applicantSalary' => $request->applicantSalary,
             'applicantExpectedSalary' => $request->applicantExpectedSalary,
             'applicantNationality' => $request->applicantNationality,
+            'applicantAddress' => $request->applicantAddress,
             'applicantEducation' => $request->applicantEducation,
             'applicantCV' => $renameApplicantCV
         ]);
