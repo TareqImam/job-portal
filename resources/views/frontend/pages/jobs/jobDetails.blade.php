@@ -74,7 +74,7 @@
                         <div class="post-details2  mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h4>Required Knowledge, Skills, and Abilities</h4>
+                                {{--  <h4>Required Knowledge, Skills, and Abilities</h4>  --}}
                             </div>
                             <ul>
                                 {{--  <li>System Software Development</li>
@@ -87,7 +87,7 @@
                         <div class="post-details2  mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h4>Education + Experience</h4>
+                                {{--  <h4>Education + Experience</h4>  --}}
                             </div>
                             <ul>
                                 {{--  <li>3 or more years of professional design experience</li>
