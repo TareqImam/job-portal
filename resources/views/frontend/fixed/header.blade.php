@@ -28,15 +28,14 @@
 
                                         @guest()
                                         <li><a href="{{route('jobList')}}">Find a Job</a></li>
-                                        <li><a href="{{route('categoryList')}}">Categories</a>  
+                                        <li><a href="{{route('categoryList')}}">Categories</a>
                                         @endguest
 
                                         <li><a href="contact.html">About</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">About Us</a></li>
-                                                <li><a href="blog.html">Contact</a></li>
-                                                <li><a href="elements.html">Blogs</a></li>
-                                                <li><a href="job_details.html">Job News</a></li>
+                                                <li><a href="{{ route('about.us') }}">About Us</a></li>
+                                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                                <li><a href="{{ route('blog') }}">Blogs</a></li>
                                             </ul>
                                         </li>
 

@@ -1,33 +1,36 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\ApplyJob;
 
 /* ------------------------------------------------ */
 /* ------------------ Admin Panel------------------ */
 /* ------------------------------------------------ */
 
-use App\Http\Controllers\Backend\MasterController;
-use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\ApplicantController;
-use App\Http\Controllers\Backend\EmployerController;
-use App\Http\Controllers\Backend\JobPostController;
-use App\Http\Controllers\Backend\CategoryController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ExamController;
+use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\MasterController;
 
 /* ------------------------------------------------ */
 /* ------------------ Front Panel------------------ */
 /* ------------------------------------------------ */
 
-use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\JobPostController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\EmployerController;
+use App\Http\Controllers\Frontend\AboutUsController;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\JobListController;
-use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
-use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
+use App\Http\Controllers\Backend\ApplicantController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Frontend\ApplyJobController;
 use App\Http\Controllers\Frontend\CategoryListController;
 use App\Http\Controllers\Frontend\ApplicantProfileController;
-use App\Http\Controllers\Frontend\ApplyJobController;
-use App\Models\ApplyJob;
-use GuzzleHttp\Middleware;
-use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
+use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
 
 /*
 |--------------------------------------------------------------------------
@@ -334,3 +337,12 @@ Route::get('/job/view/details/{id}', [JobListController::class, 'singleViewJ'])-
 Route::get('/category/list', [CategoryListController::class, 'categoryList'])->name('categoryList');
 
 Route::get('/category/list/single/{id}', [CategoryListController::class, 'singleCategory'])->name('singleCategory');
+
+
+
+// -----------------------------About---------------------------//
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
