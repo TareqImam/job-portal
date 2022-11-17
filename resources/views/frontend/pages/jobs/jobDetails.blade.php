@@ -112,7 +112,7 @@
                             <li>Location : <span>{{ $jobPost->jobPostLocation }}</span></li>
                             <li>Vacancy : <span>{{ $jobPost->jobPostVacancy }}</span></li>
                             <li>Job nature : <span>{{ $jobPost->jobPostType }}</span></li>
-                            <li>Salary : <span> ৳{{ $jobPost->jobPostSalary*12 }} yearly</span></li>
+                            <li>Salary : <span> ৳{{ $jobPost->jobPostSalary }}</span></li>
                             <li>Deadline : <span>{{ $jobPost->deadline }}</span></li>
                         </ul>
 
