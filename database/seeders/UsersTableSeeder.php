@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
         // ------------------------------Admin-----------------------------//
         User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345'),
+            'email' => 'info@neuralwebx.com',
+            'password' => bcrypt('123456'),
             'role' => 'admin',
             'status'=>'approve'
         ]);
