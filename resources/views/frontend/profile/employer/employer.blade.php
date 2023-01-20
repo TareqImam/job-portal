@@ -42,8 +42,6 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
                         href="{{route('candidates')}}">Manage Candidate</a>
 
-                    {{--  <a class="list-group-item list-group-item-action list-group-item-light p-3 mb-1 btn"
-                        href="{{route('exam.question')}}">Manage Question</a>  --}}
                 </div>
             </div>
 

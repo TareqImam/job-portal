@@ -23,7 +23,6 @@ class ExamController extends Controller
 
     public function examSubmit(Request $request)
     {
-        // dd($request);
         $request->validate([
             'examName' => 'required',
             'examSet' => 'required',

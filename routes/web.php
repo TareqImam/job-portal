@@ -6,8 +6,6 @@ use App\Models\ApplyJob;
 /* ------------------ Admin Panel------------------ */
 /* ------------------------------------------------ */
 
-use GuzzleHttp\Middleware;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ExamController;
 use App\Http\Controllers\Frontend\BlogController;
@@ -31,17 +29,6 @@ use App\Http\Controllers\Frontend\CategoryListController;
 use App\Http\Controllers\Frontend\ApplicantProfileController;
 use App\Http\Controllers\Frontend\EmployerController as FrontendEmployer;
 use App\Http\Controllers\Frontend\ApplicantController as FrontendApplicant;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 
 

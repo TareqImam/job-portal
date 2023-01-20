@@ -9,10 +9,8 @@ use App\Models\Category;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Applicant;
 use App\Models\ApplicantAnswer;
 use App\Models\ApplyJob;
-use App\Models\Company;
 use App\Models\Option;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +42,6 @@ class EmployerController extends Controller
     public function loginE(Request $request)
     {
         $employee=User::where( 'email',$request->employerEmail)->first();
-        // dd($employee);
        if($employee != null){
             if ($employee->status === 'approve') {
                 Auth::attempt([
@@ -137,7 +134,6 @@ class EmployerController extends Controller
 
     public function jobSubmit(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'jobPostName' => 'required',
             'categoryId' => 'required',
@@ -298,8 +294,6 @@ class EmployerController extends Controller
 
     public function candidates()
     {
-        // $answer = ApplicantAnswer::with('question')->where('id', 'question_Id')->first();
-
         $applyJob = ApplyJob::where('employer_id', auth()->user()->id)->get();
 
         return view('frontend.profile.employer.profile.candidate.candidate', compact('applyJob'));
@@ -354,10 +348,6 @@ class EmployerController extends Controller
 
     // ------------------------------Question methods start------------------------------- //
 
-    // public function examQuestion()
-    // {
-    //     return view('frontend.profile.employer.profile.question.question');
-    // }
 
     public function singleQuestion($id)
     {
@@ -389,7 +379,6 @@ class EmployerController extends Controller
             ]);
         }
 
-        // return view('frontend.profile.employer.profile.exam.singleView', compact('exam'));
         return redirect()->route('singleViewE', $exam->id);
     }
     // ------------------------------Question methods start------------------------------- //

@@ -19,7 +19,6 @@ class CategoryListController extends Controller
     {
         $jobs = JobPost::where('categoryID', $id)->get();
         $category = Category::find($id);
-        // dd($jobs);
         return view('frontend.pages.categories.singleCategory', compact('jobs', 'category'));
     }
 }

@@ -40,7 +40,7 @@
                                 <li><strong>Address :</strong> {{$applyJob->user->applicantAddress}}</li>
                                 <li><strong>Education :</strong> {{$applyJob->user->applicantEducation}}</li>
 
-                                <li><a class="btn" href="{{ route('download',$applyJob->user->applicantCV) }}">Download CV</a></li>
+                                
                             </ul>
                         </div>
                     </div>
